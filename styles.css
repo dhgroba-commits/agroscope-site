@@ -757,6 +757,10 @@ ul { list-style: none; }
   text-align: center;
 }
 
+.footer-brand .logo-scope {
+  color: #9E9E9E;
+}
+
 .footer-brand p {
   font-size: 0.85rem;
   color: #757575;
