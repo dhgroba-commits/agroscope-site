@@ -326,6 +326,8 @@ a:hover { color: var(--green-light); }
 
 .demo-embed iframe {
   width: 100%;
+  max-width: 100%;
+  display: block;
   border: none;
   border-radius: var(--radius);
   box-shadow: var(--shadow-md);
@@ -373,10 +375,19 @@ a:hover { color: var(--green-light); }
   .btn-lg { width: 100%; max-width: 300px; }
 
   .nav-right { gap: 12px; }
+
+  /* Embed area: full-width on mobile to avoid double scroll & horizontal scroll */
+  .demo-embed { padding: 0; max-width: 100%; }
+  .demo-embed iframe {
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
 @media (max-width: 480px) {
   .demo-hero h1 { font-size: 1.4rem; }
   .demo-card { padding: 24px 20px 20px; }
   .container { padding: 0 16px; }
+
+  .demo-embed { padding: 0; max-width: 100%; }
 }
