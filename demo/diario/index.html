@@ -37,7 +37,7 @@
   <!-- DASHBOARD AREA -->
   <main>
     <div class="demo-embed">
-      <iframe id="demo-iframe" src="./dashboard.html" title="Informe Diario AgroScope" loading="lazy" style="width:100%;min-height:90vh;border:none;"></iframe>
+      <iframe id="demo-iframe" src="./dashboard.html" title="Informe Diario AgroScope" loading="lazy" scrolling="no" style="width:100%;border:none;"></iframe>
     </div>
   </main>
 
@@ -47,6 +47,31 @@
       <p><strong><span class="logo-agro">Agro</span><span class="logo-scope">Scope</span> Intelligence</strong> — Inteligencia estrategica para el agro &nbsp;|&nbsp; <a href="mailto:info@agroscope.com.ar">Contacto</a></p>
     </div>
   </footer>
+
+  <!-- Iframe auto-resize: listen for postMessage from dashboard.html and adjust iframe height -->
+  <script>
+    (function () {
+      var iframe = document.getElementById('demo-iframe');
+      if (!iframe) return;
+      var receivedHeight = false;
+
+      window.addEventListener('message', function (event) {
+        var data = event.data;
+        if (!data || typeof data !== 'object') return;
+        if (data.type === 'agroscope-resize' && typeof data.height === 'number' && data.height > 0) {
+          iframe.style.height = data.height + 'px';
+          receivedHeight = true;
+        }
+      }, false);
+
+      // Fallback: if no resize message arrives within 3s, apply a sensible min-height
+      setTimeout(function () {
+        if (!receivedHeight) {
+          iframe.style.minHeight = '80vh';
+        }
+      }, 3000);
+    })();
+  </script>
 
 </body>
 </html>
