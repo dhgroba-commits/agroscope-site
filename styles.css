@@ -6,34 +6,40 @@
 
 :root {
   /* Verde pino (primario) */
-  --green:        #2F4A33;
-  --green-mid:    #3B5A40;
-  --green-muted:  #5C7A55;
-  --green-light:  #E6EDE3;
-  --green-deep:   #223120;
+  --green:         #2F4A33;
+  --green-mid:     #3B5A40;
+  --green-muted:   #5C7A55;
+  --green-light:   #E6EDE3;
+  --green-deep:    #1E3322;   /* banda oscura principal */
+  --green-darkest: #16271A;   /* banda más profunda */
 
-  /* Oro cosecha (acento — reemplaza el ámbar/naranja) */
-  --amber:        #C19A3E;
+  /* Oro cosecha (acento) — más saturado para que resalte */
+  --amber:        #C9A23C;
   --amber-dark:   #9C7A28;
   --amber-light:  #F4EDDC;
 
-  /* Bronce (tercer tono — reemplaza el azul) */
+  /* Cobre (acento cálido secundario) */
+  --copper:       #A8642F;
+  --copper-light: #F7E7D9;
+
+  /* Bronce (capa datos externos) */
   --blue:         #8A6A45;
   --blue-mid:     #9A7A50;
   --blue-light:   #EFE8DD;
 
   /* Tierra */
   --earth:        #5A4632;
-  --earth-dark:   #1E2A1C;
+  --earth-dark:   #16271A;   /* casi negro verdoso — secciones oscuras */
   --earth-light:  #EAE3D7;
 
-  /* Neutros tibios (tintados a tierra) */
-  --bg:       #F2EFE7;
-  --surface:  #FFFFFF;
-  --border:   #E0D9CA;
-  --text:     #23211C;
-  --text-2:   #544F46;
-  --text-3:   #857F70;
+  /* Neutros tibios más densos (menos lavados) */
+  --bg:       #EFE9DB;
+  --surface:  #FBF7EC;
+  --white:    #FFFFFF;
+  --border:   #E2D8C4;
+  --text:     #1C1A14;
+  --text-2:   #4A4434;
+  --text-3:   #7A7361;
 
   --f-display: 'Montserrat', -apple-system, sans-serif;
   --f-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -266,12 +272,51 @@ a:hover { color: var(--green-mid); }
 .card-audience h3 { font-family: var(--f-display); font-weight: 700; font-size: var(--t-xl); line-height: 1.2; }
 .card-audience p  { font-size: var(--t-sm); color: var(--text-2); line-height: 1.65; }
 
-/* ═══ NUMEROS ═══ */
-.section-amber .section-title { color: var(--earth-dark); }
+/* ═══ INFORME POR DENTRO (banda profunda) ═══ */
+.section-deep { background: var(--green-deep); color: #F2EEE2; }
+.deep-kick { font-size: var(--t-xs); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.7rem; }
+.section-deep .section-title { color: #fff; }
+.deep-lead { font-size: var(--t-lg); color: rgba(242,238,226,.74); max-width: 60ch; line-height: 1.6; margin-bottom: 2.2rem; }
+.deep-note { margin-top: 1.6rem; font-size: var(--t-sm); color: rgba(242,238,226,.5); max-width: 66ch; }
+
+.report-preview { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1.1rem; }
+.rp-panel { border-radius: var(--r-lg); padding: 1.4rem 1.5rem; }
+.rp-exec  { background: var(--surface); color: var(--text); box-shadow: var(--shadow-lg); }
+.rp-score { background: var(--green-darkest); border: 1px solid rgba(201,162,60,.32); color: #F2EEE2; }
+.rp-tagline { display: inline-block; font-size: var(--t-xs); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 0.18rem 0.6rem; border-radius: 5px; background: var(--copper-light); color: var(--copper); margin-bottom: 0.9rem; }
+.rp-h { font-family: var(--f-display); font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.7rem; }
+.rp-h2 { margin-top: 1.1rem; }
+.rp-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.rp-dot-copper { background: var(--copper); }
+.rp-dot-gold   { background: var(--amber); }
+.rp-exec p { font-size: 0.86rem; line-height: 1.6; margin-bottom: 0.5rem; }
+.rp-muted { color: var(--text-3); font-size: 0.8rem; }
+.rp-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.rp-chips span { font-size: 0.72rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 100px; background: var(--green-light); color: var(--green); }
+.rp-scores { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+.rp-row { display: flex; align-items: center; gap: 0.7rem; }
+.rp-crop { font-weight: 600; font-size: 0.85rem; width: 62px; color: #EAE5D8; }
+.rp-track { flex: 1; height: 8px; border-radius: 5px; background: rgba(255,255,255,.12); overflow: hidden; }
+.rp-fill { height: 100%; border-radius: 5px; }
+.rp-up   { background: linear-gradient(90deg,#3E5C42,#7FB069); }
+.rp-flat { background: linear-gradient(90deg,#9C7A28,#C9A23C); }
+.rp-down { background: linear-gradient(90deg,#8A4A2F,#C77B52); }
+.rp-arrow { font-size: 0.8rem; width: 14px; text-align: center; }
+.rp-aup { color: #7FB069; } .rp-aflat { color: var(--amber); } .rp-adown { color: #C77B52; }
+.rp-val { font-family: var(--f-display); font-weight: 800; font-size: 0.95rem; width: 34px; text-align: right; color: var(--amber); }
+.rp-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+.rp-mc { background: rgba(255,255,255,.06); border-radius: 10px; padding: 0.8rem 0.9rem; }
+.rp-ml { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 0.35rem; }
+.rp-risk { color: #E0A060; } .rp-opp { color: #7FB069; }
+.rp-mv { font-size: 0.78rem; line-height: 1.4; color: rgba(242,238,226,.85); }
+
+/* ═══ NUMEROS (banda oscura, números en oro) ═══ */
+.section-numbers { background: var(--green-deep); }
+.section-numbers .section-title { color: #fff; }
 .stats-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; margin-top: 2rem; }
 .stat { text-align: center; padding: 1rem 0.5rem; }
-.stat-number { font-family: var(--f-display); font-weight: 800; font-size: clamp(1.75rem, 3vw, 2.4rem); color: var(--earth-dark); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
-.stat-label  { font-size: var(--t-xs); color: var(--earth); line-height: 1.4; }
+.stat-number { font-family: var(--f-display); font-weight: 800; font-size: clamp(1.75rem, 3vw, 2.4rem); color: var(--amber); line-height: 1; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+.stat-label  { font-size: var(--t-xs); color: rgba(242,238,226,.6); line-height: 1.4; }
 
 /* ═══ PRICING / SCOPES ═══ */
 .pricing-grid { margin-top: 2rem; align-items: start; }
@@ -342,6 +387,7 @@ a:hover { color: var(--green-mid); }
   .grid-3        { grid-template-columns: 1fr; }
   .grid-2        { grid-template-columns: 1fr; }
   .tech-grid     { grid-template-columns: 1fr; }
+  .report-preview { grid-template-columns: 1fr; }
   .val-principles { grid-template-columns: 1fr; gap: 1.25rem; }
   .stats-grid    { grid-template-columns: repeat(2, 1fr); }
   .form-row      { grid-template-columns: 1fr; }
