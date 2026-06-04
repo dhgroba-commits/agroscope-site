@@ -157,17 +157,21 @@ a:hover { color: var(--green-mid); }
 .hero-ctas { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
 .hero-note { font-size: var(--t-xs); color: rgba(255,255,255,.5); }
 
-/* Hero scope ladder */
-.hero-scopes { display: flex; flex-direction: column; gap: 0.6rem; }
-.scope-rung { padding: 1rem 1.25rem; border-radius: var(--r); background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); transition: transform var(--dur) var(--ease-out); }
-.scope-rung.sr2 { margin-left: 1.25rem; background: rgba(255,255,255,.14); }
-.scope-rung.sr3 { margin-left: 2.5rem; background: var(--amber); border-color: var(--amber); color: var(--earth-dark); }
-.scope-rung:hover { transform: translateX(3px); }
-.sr-top { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; font-family: var(--f-display); font-weight: 700; font-size: 0.95rem; }
-.sr-price { font-size: 0.85rem; white-space: nowrap; }
-.scope-rung.sr1 .sr-price, .scope-rung.sr2 .sr-price { color: var(--amber); }
-.sr-detail { font-size: 0.76rem; opacity: .85; margin-top: 0.2rem; }
-.scope-rung.sr3 .sr-detail { opacity: .92; }
+/* Hero — diagrama de capas del sistema */
+.hero-diagram { display: flex; justify-content: flex-end; }
+.hd-layers { display: flex; flex-direction: column; gap: 0; width: 100%; max-width: 410px; }
+.hd-layer { padding: 1rem 1.25rem; border-radius: var(--r); transition: transform var(--dur) var(--ease-out); }
+.hd-layer:hover { transform: translateX(3px); }
+.hd-layer-label { font-family: var(--f-display); font-weight: 700; font-size: var(--t-sm); margin-bottom: 0.2rem; }
+.hd-layer-detail { font-size: 0.77rem; opacity: .85; line-height: 1.45; }
+.hd-l1 { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.26); color: #fff; }
+.hd-l2 { background: rgba(138,106,69,.32); border: 1px solid rgba(196,164,124,.5); color: #fff; }
+.hd-l3 { background: rgba(193,154,62,.22); border: 1px solid rgba(193,154,62,.6); color: var(--amber); }
+.hd-connector { display: flex; justify-content: center; padding: 0.25rem 0; color: rgba(255,255,255,.4); }
+.hd-output { margin-top: 0.75rem; padding: 0.85rem 1.25rem; background: rgba(255,255,255,.1); border-radius: var(--r); border: 1px solid rgba(255,255,255,.2); }
+.hd-output-label { font-size: var(--t-sm); font-weight: 700; color: var(--amber); margin-bottom: 0.5rem; }
+.hd-crops { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.hd-crops span { font-size: var(--t-xs); font-weight: 500; padding: 0.2rem 0.6rem; background: rgba(255,255,255,.15); border-radius: 100px; color: rgba(255,255,255,.9); }
 
 /* ═══ PROBLEMA ═══ */
 .problem-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 740px; margin: 2rem auto 2.5rem; }
