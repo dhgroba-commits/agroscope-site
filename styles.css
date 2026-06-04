@@ -33,10 +33,12 @@
   --earth-light:  #EAE3D7;
 
   /* Neutros tibios más densos (menos lavados) */
-  --bg:       #EFE9DB;
+  --bg:       #EFE9DB;       /* cream cálido */
+  --bg-2:     #DCE3CF;       /* salvia claro — secciones alternas */
   --surface:  #FBF7EC;
   --white:    #FFFFFF;
   --border:   #E2D8C4;
+  --border-2: #CBD4BC;       /* borde sobre salvia */
   --text:     #1C1A14;
   --text-2:   #4A4434;
   --text-3:   #7A7361;
@@ -132,7 +134,7 @@ a:hover { color: var(--green-mid); }
 
 /* --- Sections --- */
 .section { padding-block: var(--section-py); }
-.section-gray { background: var(--bg); }
+.section-gray { background: var(--bg-2); }
 .section-dark { background: var(--earth-dark); color: #f1efe7; }
 .section-amber { background: var(--amber); }
 .section-cta { text-align: center; }
@@ -180,11 +182,11 @@ a:hover { color: var(--green-mid); }
 .hd-crops span { font-size: var(--t-xs); font-weight: 500; padding: 0.2rem 0.6rem; background: rgba(255,255,255,.15); border-radius: 100px; color: rgba(255,255,255,.9); }
 
 /* ═══ PROBLEMA ═══ */
-.problem-list { display: flex; flex-direction: column; gap: 1.5rem; max-width: 740px; margin: 2rem auto 2.5rem; }
-.problem-item { display: flex; gap: 1.5rem; align-items: flex-start; }
-.problem-num { font-family: var(--f-display); font-weight: 800; font-size: 2.2rem; line-height: 1; color: var(--green); opacity: .2; flex-shrink: 0; width: 3rem; text-align: right; padding-top: 0.1rem; }
-.problem-body h3 { font-family: var(--f-display); font-weight: 700; font-size: var(--t-xl); margin-bottom: 0.4rem; }
-.problem-body p  { color: var(--text-2); line-height: 1.65; font-size: var(--t-sm); }
+.problem-list { display: flex; flex-direction: column; gap: 1rem; max-width: 760px; margin: 2rem auto 2.5rem; }
+.problem-item { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 1.35rem 1.6rem; box-shadow: var(--shadow-sm); }
+.problem-num { font-family: var(--f-display); font-weight: 800; font-size: 1.9rem; line-height: 1; color: var(--amber); flex-shrink: 0; width: 2.4rem; text-align: left; padding-top: 0.05rem; }
+.problem-body h3 { font-family: var(--f-display); font-weight: 700; font-size: var(--t-xl); margin-bottom: 0.3rem; }
+.problem-body p  { color: var(--text-2); line-height: 1.6; font-size: var(--t-sm); }
 
 /* ═══ SISTEMA — 4 LAYER CARDS ═══ */
 .layers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
@@ -237,10 +239,10 @@ a:hover { color: var(--green-mid); }
 .comparison-table thead .col-highlight { color: var(--amber); background: rgba(193,154,62,.12); }
 
 /* ═══ TECNOLOGIA ═══ */
-.tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.25rem; margin-bottom: 2rem; }
-.tech-item { display: flex; gap: 1rem; padding: 1.25rem; border-radius: var(--r); transition: background var(--dur) var(--ease-out); }
-.tech-item:hover { background: var(--green-light); }
-.tech-num { font-family: var(--f-display); font-weight: 800; font-size: 0.9rem; color: var(--green); opacity: .4; flex-shrink: 0; width: 1.75rem; padding-top: 0.2rem; }
+.tech-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 2rem; }
+.tech-item { display: flex; gap: 1rem; padding: 1.25rem 1.4rem; border-radius: var(--r); background: var(--surface); border: 1px solid var(--border); transition: background var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out), transform var(--dur) var(--ease-out); }
+.tech-item:hover { background: var(--green-light); border-color: var(--green-muted); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.tech-num { font-family: var(--f-display); font-weight: 800; font-size: 1rem; color: var(--amber-dark); flex-shrink: 0; width: 1.75rem; padding-top: 0.15rem; }
 .tech-body h4 { font-weight: 600; font-size: var(--t-base); color: var(--text); margin-bottom: 0.2rem; }
 .tech-body p  { font-size: var(--t-sm); color: var(--text-2); line-height: 1.55; }
 
