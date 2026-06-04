@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgroScope - Inteligencia Estrategica para el Agro Argentino</title>
-  <meta name="description" content="Sistema de analisis inteligente de noticias agroindustriales. +13 medios, NLP avanzado, informes diarios accionables. Prueba gratis 7 dias.">
+  <title>AgroScope — Inteligencia Agroindustrial con Validación Empírica</title>
+  <meta name="description" content="Sistema de inteligencia agroindustrial: prensa AR (13 medios), 31 fuentes externas (USDA, FAO, NOAA, BCR, CFTC, Matba-Rofex) y modelos predictivos calibrados con backtest. Score 0-100 por cultivo cada mañana.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="AgroScope Intelligence">
+  <meta property="og:description" content="Inteligencia agroindustrial con validación empírica. 3 capas: prensa, datos externos y modelos ML calibrados.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -13,14 +16,15 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav" id="nav">
     <div class="container nav-inner">
       <a href="#" class="logo">
         <span class="logo-agro">Agro</span><span class="logo-scope">Scope</span>
       </a>
       <div class="nav-links">
         <a href="#producto">Producto</a>
-        <a href="#tecnologia">Tecnologia</a>
+        <a href="#validacion">Validación</a>
+        <a href="#tecnologia">Tecnología</a>
         <a href="#precios">Precios</a>
         <a href="#faq">FAQ</a>
         <a href="#demo" class="btn btn-sm btn-primary">Demo gratuita</a>
@@ -34,41 +38,72 @@
   <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="container hero-inner">
-      <h1>La informacion del agro, convertida en <span class="highlight">inteligencia estrategica</span>.</h1>
-      <p class="hero-sub">13 medios agro. +50 noticias diarias. Analizadas con inteligencia artificial especializada en el agro. Actores, tendencias, riesgos y oportunidades en un informe de 5 minutos. Cada maniana en tu inbox.</p>
-      <div class="hero-ctas">
-        <a href="#demo" class="btn btn-primary btn-lg">Solicitar demo gratuita</a>
-        <a href="demo/diario/" class="btn-link">Ver un informe ejemplo &rarr;</a>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Sistema de inteligencia agroindustrial</p>
+        <h1>La información del agro, convertida en <em>inteligencia estratégica</em>.</h1>
+        <p class="hero-sub">Prensa AR (13 medios) + 31 fuentes externas (USDA, FAO, NOAA, BCR, CFTC, Matba-Rofex) + modelos predictivos calibrados con backtest. Score 0-100 por cultivo cada mañana. Todo en 5 minutos.</p>
+        <div class="hero-ctas">
+          <a href="#demo" class="btn btn-amber btn-lg">Solicitar demo gratuita</a>
+          <a href="demo/diario/" class="btn-link-white">Ver un informe ejemplo →</a>
+        </div>
+        <p class="hero-note">7 días de prueba gratuita. Sin tarjeta de crédito.</p>
       </div>
-      <p class="hero-note">7 dias de prueba gratuita. Sin tarjeta de credito.</p>
+      <div class="hero-diagram" aria-hidden="true">
+        <div class="hd-layers">
+          <div class="hd-layer hd-green">
+            <div class="hd-layer-label">Capa 1 — Corpus de prensa</div>
+            <div class="hd-layer-detail">13 medios agro · NLP + SFL · actores y tendencias</div>
+          </div>
+          <div class="hd-connector">
+            <svg width="14" height="20" viewBox="0 0 14 20" fill="none"><line x1="7" y1="0" x2="7" y2="20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/><polyline points="2,14 7,20 12,14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="hd-layer hd-blue">
+            <div class="hd-layer-label">Capa 2 — Datos externos</div>
+            <div class="hd-layer-detail">31 fuentes: USDA · FAO · NOAA · BCR · Matba-Rofex · Baltic</div>
+          </div>
+          <div class="hd-connector">
+            <svg width="14" height="20" viewBox="0 0 14 20" fill="none"><line x1="7" y1="0" x2="7" y2="20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/><polyline points="2,14 7,20 12,14" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="hd-layer hd-amber">
+            <div class="hd-layer-label">Capa 3 — Señales predictivas</div>
+            <div class="hd-layer-detail">6 predictores · 4 modelos ML · AUC 0.58–0.64 · Score 0–100</div>
+          </div>
+          <div class="hd-output">
+            <div class="hd-output-label">Informe diario · 5 minutos</div>
+            <div class="hd-crops">
+              <span>Soja</span><span>Maíz</span><span>Trigo</span><span>Girasol</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- PROBLEMA -->
   <section class="section section-gray" id="problema">
     <div class="container">
-      <h2 class="section-title">Hoy el problema no es la falta de informacion. <span class="highlight">Es el exceso.</span></h2>
-      <div class="grid-3">
-        <div class="card-problem">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="7" y1="8" x2="7" y2="12"/><line x1="12" y1="7" x2="12" y2="12"/><line x1="17" y1="9" x2="17" y2="12"/></svg>
+      <h2 class="section-title">Hoy el problema no es la falta de información. <span class="highlight">Es el exceso.</span></h2>
+      <div class="problem-list">
+        <div class="problem-item">
+          <div class="problem-num">01</div>
+          <div class="problem-body">
+            <h3>Fragmentación</h3>
+            <p>Decenas de portales, noticias repetidas y enfoques parciales. Nadie tiene tiempo para leer todo, y leer es diferente a entender.</p>
           </div>
-          <h3>Fragmentacion</h3>
-          <p>Decenas de portales, noticias repetidas y enfoques parciales. Nadie tiene tiempo para leer todo.</p>
         </div>
-        <div class="card-problem">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <div class="problem-item">
+          <div class="problem-num">02</div>
+          <div class="problem-body">
+            <h3>Sin análisis integrado</h3>
+            <p>Los datos cuantitativos (precios, clima, comercio) y las noticias de prensa nunca se interpretan juntos. Sin esa integración, el contexto es siempre parcial.</p>
           </div>
-          <h3>Sin analisis</h3>
-          <p>Leer noticias no es lo mismo que entenderlas. Quien hace que, por que, y que significa para tu negocio.</p>
         </div>
-        <div class="card-problem">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <div class="problem-item">
+          <div class="problem-num">03</div>
+          <div class="problem-body">
+            <h3>Decisiones a ciegas</h3>
+            <p>Decisiones críticas tomadas con información incompleta. Oportunidades que pasan. Riesgos que no se ven. Señales que existen pero no se procesan.</p>
           </div>
-          <h3>Decisiones a ciegas</h3>
-          <p>Decisiones criticas tomadas con informacion incompleta. Oportunidades que pasan. Riesgos que no se ven.</p>
         </div>
       </div>
       <p class="section-quote">Resultado: ruido informativo, tiempo perdido y oportunidades que llegan tarde.</p>
@@ -78,23 +113,56 @@
   <!-- SOLUCION -->
   <section class="section" id="solucion">
     <div class="container">
-      <h2 class="section-title">AgroScope transforma el ruido en <span class="highlight">claridad</span>.</h2>
-      <p class="section-sub">No recopilamos noticias. Interpretamos el agro. La diferencia entre leer titulares y entender el mercado.</p>
-      <div class="grid-3">
-        <div class="card-solution">
-          <div class="card-number">1</div>
-          <h3>Centraliza</h3>
-          <p>Recolectamos automaticamente 13 medios agro lideres ademas de otras fuentes relevantes para las diversas areas que integran el ecosistema agrario argentino.</p>
+      <h2 class="section-title">Tres capas. <span class="highlight">Una sola inteligencia.</span></h2>
+      <p class="section-sub">No recopilamos noticias. Integramos prensa, datos globales y predicción validada empíricamente. La diferencia entre leer titulares y entender el mercado.</p>
+      <div class="layers-grid">
+        <div class="layer-card layer-card--green">
+          <div class="layer-card-header">
+            <span class="layer-tag">Capa 1</span>
+            <h3>Corpus de prensa</h3>
+          </div>
+          <p>13 medios agro argentinos analizados con NLP y Lingüística Funcional Sistémica. Extracción automática de actores, acciones, tendencias y cadenas causales.</p>
+          <div class="layer-chips">
+            <span>13 medios AR</span>
+            <span>NLP + SFL</span>
+            <span>+50 notas/día</span>
+          </div>
         </div>
-        <div class="card-solution">
-          <div class="card-number">2</div>
-          <h3>Analiza</h3>
-          <p>Nuestro motor de inteligencia artificial extrae actores, tendencias, tensiones, cadenas causales y senales de riesgo/oportunidad.</p>
+        <div class="layer-card layer-card--blue">
+          <div class="layer-card-header">
+            <span class="layer-tag">Capa 2</span>
+            <h3>Datos externos</h3>
+          </div>
+          <p>31 fuentes automáticas: precios CBOT/FOB, clima NOAA/ASIS, reportes WASDE/FAS, fletes Baltic, posición CFTC, Matba-Rofex CEM2, entre otras.</p>
+          <div class="layer-chips">
+            <span>31 fuentes</span>
+            <span>USDA · FAO · BCR</span>
+            <span>Actualización diaria</span>
+          </div>
         </div>
-        <div class="card-solution">
-          <div class="card-number">3</div>
-          <h3>Interpreta</h3>
-          <p>Informes claros y accionables. No datos crudos. Lectura estrategica lista para tomar decisiones.</p>
+        <div class="layer-card layer-card--amber">
+          <div class="layer-card-header">
+            <span class="layer-tag">Capa 3</span>
+            <h3>Señales predictivas</h3>
+          </div>
+          <p>6 predictores validados con backtest propio. 4 modelos ML calibrados (AUC 0.58–0.64). Score 0–100 por cultivo, recalibrado mensualmente con datos reales.</p>
+          <div class="layer-chips">
+            <span>AUC 0.58–0.64</span>
+            <span>15+ backtests</span>
+            <span>Score 0–100</span>
+          </div>
+        </div>
+        <div class="layer-card layer-card--earth">
+          <div class="layer-card-header">
+            <span class="layer-tag">Principio</span>
+            <h3>Transparencia metodológica</h3>
+          </div>
+          <p>Documentamos qué predecimos bien y qué no. Cada señal incluye su evidencia empírica y margen de error. Rigor científico como ventaja competitiva, no como marketing.</p>
+          <div class="layer-chips">
+            <span>Sin promesas vacías</span>
+            <span>Limitaciones documentadas</span>
+            <span>Calibración continua</span>
+          </div>
         </div>
       </div>
     </div>
@@ -103,43 +171,43 @@
   <!-- QUE RECIBIS -->
   <section class="section section-gray" id="producto">
     <div class="container">
-      <h2 class="section-title">Tres informes. Todo lo que necesitas saber.</h2>
+      <h2 class="section-title">Tres informes. Todo lo que necesitás saber.</h2>
       <div class="grid-3">
         <div class="card-report">
           <div class="card-badge">Diario</div>
           <h3>Informe Diario</h3>
-          <p class="card-tagline">Cada maniana en tu inbox.</p>
+          <p class="card-tagline">Cada mañana en tu inbox.</p>
           <ul>
-            <li>Indice de tension diaria y alertas tempranas</li>
-            <li>Actores clave, acciones y cadenas de valor</li>
-            <li>Tracking regulatorio y senales de mercado</li>
-            <li>Indice exportador con contexto de precios</li>
-            <li>Nota del dia: lectura estrategica para decidir</li>
+            <li>Score predictivo 0–100 por cultivo (con confianza)</li>
+            <li>Actores clave, acciones y cadenas de valor (NLP)</li>
+            <li>Datos del día: precios CBOT/FOB, clima NOAA, Matba-Rofex</li>
+            <li>Seguimiento regulatorio y señales de mercado</li>
+            <li>Lectura estratégica: qué dice la prensa, qué dicen los datos</li>
           </ul>
           <p class="card-meta">Tiempo de lectura: 5 minutos</p>
         </div>
         <div class="card-report">
           <div class="card-badge badge-amber">Semanal</div>
           <h3>Informe Semanal</h3>
-          <p class="card-tagline">Vision de la semana en una pagina.</p>
+          <p class="card-tagline">Visión de la semana en una página.</p>
           <ul>
-            <li>Sentimiento sectorial y narrativas dominantes</li>
+            <li>Tendencias dominantes en prensa y datos cuantitativos</li>
             <li>Radar editorial: cobertura comparada entre medios</li>
             <li>Mapa de actores institucionales y sus movimientos</li>
-            <li>Tracking regulatorio y cadenas de valor de la semana</li>
-            <li>Alertas tempranas y senales persistentes</li>
+            <li>Datos semanales consolidados (precios, clima, reservas BCR)</li>
+            <li>Señales persistentes y alertas tempranas validadas</li>
           </ul>
         </div>
         <div class="card-report">
           <div class="card-badge badge-blue">Mensual</div>
           <h3>Informe Mensual</h3>
-          <p class="card-tagline">Sintesis ejecutiva para tu directorio.</p>
+          <p class="card-tagline">Síntesis ejecutiva para tu directorio.</p>
           <ul>
             <li>Sentimiento sectorial consolidado del mes</li>
-            <li>Mapa de actores institucionales y tendencias</li>
-            <li>Timeline regulatorio y evolucion de cadenas de valor</li>
-            <li>Indice de diversidad mediatica y mapa de calor temporal</li>
-            <li>Sintesis estrategica lista para directorio</li>
+            <li>Mapa de actores institucionales y tendencias estructurales</li>
+            <li>Timeline regulatorio e impacto en datos externos</li>
+            <li>Desempeño mensual de predictores (calibración)</li>
+            <li>Síntesis ejecutiva: metodología más decisiones clave del período</li>
           </ul>
         </div>
       </div>
@@ -155,19 +223,20 @@
           <thead>
             <tr>
               <th></th>
-              <th>Newsletter tipico</th>
+              <th>Newsletter típico</th>
               <th>Consultora</th>
               <th class="col-highlight">AgroScope</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Actualizacion</td><td>Diaria</td><td>Mensual</td><td class="col-highlight"><strong>Diaria</strong></td></tr>
-            <tr><td>Cobertura de medios</td><td>2-3</td><td>Variable</td><td class="col-highlight"><strong>+13 medios</strong></td></tr>
-            <tr><td>Analisis de actores</td><td>No</td><td>Manual</td><td class="col-highlight"><strong>Automatico</strong></td></tr>
-            <tr><td>Deteccion de riesgos</td><td>No</td><td>Si (lento)</td><td class="col-highlight"><strong>Automatico</strong></td></tr>
-            <tr><td>Tendencias semanticas</td><td>No</td><td>No</td><td class="col-highlight"><strong>Si (NLP)</strong></td></tr>
+            <tr><td>Actualización</td><td>Diaria</td><td>Mensual</td><td class="col-highlight"><strong>Diaria automática</strong></td></tr>
+            <tr><td>Cobertura de medios</td><td>2–3</td><td>Variable</td><td class="col-highlight"><strong>+13 medios AR</strong></td></tr>
+            <tr><td>Fuentes externas integradas</td><td>No</td><td>Manual</td><td class="col-highlight"><strong>31 fuentes automáticas</strong></td></tr>
+            <tr><td>Análisis de actores (NLP)</td><td>No</td><td>Manual</td><td class="col-highlight"><strong>Automático</strong></td></tr>
+            <tr><td>Modelos predictivos</td><td>No</td><td>No</td><td class="col-highlight"><strong>Sí (AUC validado)</strong></td></tr>
+            <tr><td>Validación empírica</td><td>No</td><td>No</td><td class="col-highlight"><strong>Sí (backtest propio)</strong></td></tr>
             <tr><td>Costo mensual</td><td>Gratis / bajo</td><td>USD 2,000+</td><td class="col-highlight"><strong>Desde USD 29</strong></td></tr>
-            <tr><td>Tiempo de lectura</td><td>10-15 min</td><td>30+ min</td><td class="col-highlight"><strong>5 minutos</strong></td></tr>
+            <tr><td>Tiempo de lectura</td><td>10–15 min</td><td>30+ min</td><td class="col-highlight"><strong>5 minutos</strong></td></tr>
           </tbody>
         </table>
       </div>
@@ -177,88 +246,153 @@
   <!-- TECNOLOGIA -->
   <section class="section" id="tecnologia">
     <div class="container">
-      <h2 class="section-title">Motor de inteligencia, no edicion manual</h2>
-      <p class="section-sub">Lo que su equipo tarda 2 horas en leer, nuestro motor lo analiza antes del desayuno. No editores humanos — un motor de inteligencia artificial construido para el agro.</p>
-      <div class="grid-3 grid-tech">
-        <div class="card-tech">
-          <div class="tech-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9"/></svg>
+      <h2 class="section-title">Motor de inteligencia, no edición manual</h2>
+      <p class="section-sub">Lo que un equipo tarda 2 horas en leer, nuestro motor lo analiza antes del desayuno. Tres capas integradas, actualizadas las 24 horas.</p>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <div class="tech-num">01</div>
+          <div class="tech-body">
+            <h4>Cobertura automática</h4>
+            <p>+13 medios agro, recolectados cada día sin intervención manual</p>
           </div>
-          <h4>Cobertura automatica</h4>
-          <p>+13 medios agro, actualizados cada dia</p>
         </div>
-        <div class="card-tech">
-          <div class="tech-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2z"/></svg>
+        <div class="tech-item">
+          <div class="tech-num">02</div>
+          <div class="tech-body">
+            <h4>Integración de datos externos</h4>
+            <p>31 fuentes automáticas: precios, clima, comercio, especulación y logística</p>
           </div>
-          <h4>Identificacion de actores y acciones</h4>
-          <p>Quien hizo que, donde y por que — extraido automaticamente</p>
         </div>
-        <div class="card-tech">
-          <div class="tech-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div class="tech-item">
+          <div class="tech-num">03</div>
+          <div class="tech-body">
+            <h4>Identificación de actores</h4>
+            <p>Quién hace qué, dónde y por qué — extraído automáticamente de cada nota</p>
           </div>
-          <h4>Analisis de poder y agencia</h4>
-          <p>Quien decide, quien ejecuta, quien es afectado</p>
         </div>
-        <div class="card-tech">
-          <div class="tech-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <div class="tech-item">
+          <div class="tech-num">04</div>
+          <div class="tech-body">
+            <h4>Señales predictivas validadas</h4>
+            <p>6 predictores con backtest histórico. 4 modelos ML calibrados (AUC 0.58–0.64)</p>
           </div>
-          <h4>Busqueda semantica</h4>
-          <p>Encuentra patrones que la busqueda textual no ve</p>
         </div>
-        <div class="card-tech">
-          <div class="tech-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <div class="tech-item">
+          <div class="tech-num">05</div>
+          <div class="tech-body">
+            <h4>Análisis de poder y agencia</h4>
+            <p>Quién decide, quién ejecuta, quién es afectado — con SFL (Lingüística Funcional)</p>
           </div>
-          <h4>Conexiones causa-efecto</h4>
-          <p>Detecta relaciones que la lectura humana pasa por alto</p>
         </div>
-        <div class="card-tech">
-          <div class="tech-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div class="tech-item">
+          <div class="tech-num">06</div>
+          <div class="tech-body">
+            <h4>Búsqueda semántica</h4>
+            <p>Encuentra patrones y relaciones que la búsqueda textual no ve</p>
           </div>
-          <h4>Seguimiento de senales</h4>
-          <p>Separa el ruido de las tendencias reales a 7 y 30 dias</p>
+        </div>
+        <div class="tech-item">
+          <div class="tech-num">07</div>
+          <div class="tech-body">
+            <h4>Conexiones causa-efecto</h4>
+            <p>Detecta relaciones entre eventos que la lectura humana pasa por alto</p>
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-num">08</div>
+          <div class="tech-body">
+            <h4>Validación empírica continua</h4>
+            <p>Backtest mensual. Documentamos qué funciona y qué no. Sin promesas no validadas.</p>
+          </div>
         </div>
       </div>
-      <p class="section-note">Construido, testeado y refinado sobre miles de noticias reales. No es un prototipo — es un sistema entrenado sobre el corpus real del agro argentino.</p>
+      <p class="section-note">Construido sobre datos reales del agro argentino. Más de 90 iteraciones de desarrollo. No es un prototipo.</p>
+    </div>
+  </section>
+
+  <!-- VALIDACION (nueva sección) -->
+  <section class="section section-validation" id="validacion">
+    <div class="container">
+      <div class="val-header">
+        <h2 class="val-title">Validación empírica.</h2>
+        <p class="val-sub">No es un claim de marketing. Es un backtest sobre 540 días de datos reales. Publicamos lo que funciona y lo que tiene límites.</p>
+      </div>
+      <div class="val-auc-grid">
+        <div class="auc-card">
+          <div class="auc-crop">Soja</div>
+          <div class="auc-value">0.64</div>
+          <div class="auc-bar"><div class="auc-fill" style="width:64%"></div></div>
+          <div class="auc-label">AUC — modelo v2 canónico</div>
+        </div>
+        <div class="auc-card">
+          <div class="auc-crop">Maíz</div>
+          <div class="auc-value">0.63</div>
+          <div class="auc-bar"><div class="auc-fill" style="width:63%"></div></div>
+          <div class="auc-label">AUC — Sprint 25 Fase B</div>
+        </div>
+        <div class="auc-card">
+          <div class="auc-crop">Trigo</div>
+          <div class="auc-value">0.58</div>
+          <div class="auc-bar"><div class="auc-fill" style="width:58%"></div></div>
+          <div class="auc-label">AUC — ROBUSTO Fase A</div>
+        </div>
+        <div class="auc-card">
+          <div class="auc-crop">Girasol</div>
+          <div class="auc-value">0.61</div>
+          <div class="auc-bar"><div class="auc-fill" style="width:61%"></div></div>
+          <div class="auc-label">AUC — Fase B (y_up)</div>
+        </div>
+      </div>
+      <div class="val-principles">
+        <div class="vp-item">
+          <div class="vp-num">15+</div>
+          <div class="vp-text">backtests ejecutados: Pearson, Granger, Engle-Granger, Johansen, VAR/FEVD y ML calibrado con validación cruzada</div>
+        </div>
+        <div class="vp-item">
+          <div class="vp-num">540</div>
+          <div class="vp-text">días de historial validado para cada predictor sobre datos reales del mercado argentino (2024–2026)</div>
+        </div>
+        <div class="vp-item">
+          <div class="vp-num">0</div>
+          <div class="vp-text">promesas no validadas. Cada señal incluye su AUC, su margen de error y sus limitaciones documentadas</div>
+        </div>
+      </div>
+      <p class="val-footnote">AUC mayor a 0.5 equivale a mejor que azar. AUC 0.58–0.64 en mercados agro con alta volatilidad política y macroeconómica es un resultado estadísticamente robusto y reproducible.</p>
     </div>
   </section>
 
   <!-- PARA QUIEN -->
   <section class="section section-gray" id="audiencias">
     <div class="container">
-      <h2 class="section-title">Disenado para quienes deciden en el agro</h2>
+      <h2 class="section-title">Diseñado para quienes deciden en el agro</h2>
       <div class="grid-2">
         <div class="card-audience">
           <div class="audience-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
           </div>
           <h3>Empresas agropecuarias y exportadoras</h3>
-          <p>Ahorro de tiempo ejecutivo. Vision integrada para comite directivo. Anticipacion de movimientos regulatorios y de mercado.</p>
+          <p>Visión integrada de prensa y datos externos para comité directivo. Score predictivo 0–100 por cultivo para planificación comercial y cobertura. Ahorro de tiempo ejecutivo real.</p>
         </div>
         <div class="card-audience">
           <div class="audience-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <h3>Laboratorios y empresas de insumos</h3>
-          <p>Inteligencia competitiva. Deteccion de oportunidades comerciales. Seguimiento de regulaciones y tendencias cientificas.</p>
+          <p>Inteligencia competitiva con datos reales. Detección temprana de oportunidades comerciales. Seguimiento de regulaciones, tendencias científicas y actores clave del sector.</p>
         </div>
         <div class="card-audience">
           <div class="audience-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3>Productores y cooperativas</h3>
-          <p>Toda la informacion clave, resumida y explicada. La misma inteligencia que usan las grandes empresas.</p>
+          <p>Toda la información clave — prensa, precios y señales predictivas — resumida en 5 minutos. La misma inteligencia que usan las grandes empresas, a escala de productor.</p>
         </div>
         <div class="card-audience">
           <div class="audience-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5E20" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
           <h3>Asesores y consultores</h3>
-          <p>Insumo diario para asesoramiento a clientes. Valor agregado a su servicio de consultoria.</p>
+          <p>Insumo diario para asesoramiento a clientes. Score predictivo más contexto de mercado como base para recomendaciones informadas. Valor agregado a tu servicio.</p>
         </div>
       </div>
     </div>
@@ -267,15 +401,23 @@
   <!-- NUMEROS -->
   <section class="section section-amber" id="numeros">
     <div class="container">
-      <h2 class="section-title">AgroScope en numeros</h2>
-      <div class="grid-4 stats-grid">
+      <h2 class="section-title dark">AgroScope en números</h2>
+      <div class="stats-grid">
         <div class="stat">
           <div class="stat-number">+13</div>
           <div class="stat-label">medios agro analizados diariamente</div>
         </div>
         <div class="stat">
-          <div class="stat-number">+90</div>
-          <div class="stat-label">ciclos de mejora del sistema</div>
+          <div class="stat-number">+31</div>
+          <div class="stat-label">fuentes de datos externos integradas</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">6</div>
+          <div class="stat-label">predictores validados con backtest</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">0.61</div>
+          <div class="stat-label">AUC promedio en modelos ML calibrados</div>
         </div>
         <div class="stat">
           <div class="stat-number">5 min</div>
@@ -283,7 +425,7 @@
         </div>
         <div class="stat">
           <div class="stat-number">24/7</div>
-          <div class="stat-label">monitoreo automatico de medios</div>
+          <div class="stat-label">monitoreo automático y actualización continua</div>
         </div>
       </div>
     </div>
@@ -292,7 +434,7 @@
   <!-- PRICING -->
   <section class="section" id="precios">
     <div class="container">
-      <h2 class="section-title">Planes que se adaptan a tu operacion</h2>
+      <h2 class="section-title">Planes que se adaptan a tu operación</h2>
       <div class="grid-3 pricing-grid">
 
         <div class="card-price">
@@ -302,11 +444,11 @@
             <p class="price-annual">USD 24/mes en plan anual</p>
           </div>
           <ul>
-            <li>Informe diario con analisis</li>
+            <li>Informe diario con análisis</li>
             <li>Precios de granos con contexto</li>
-            <li>Actores y tendencias (basico)</li>
+            <li>Actores y tendencias (básico)</li>
             <li>Dashboards web interactivos</li>
-            <li>Acceso historico 7 dias</li>
+            <li>Acceso histórico 7 días</li>
             <li>1 usuario</li>
           </ul>
           <a href="#demo" class="btn btn-outline">Comenzar prueba gratuita</a>
@@ -324,7 +466,7 @@
             <li>Informe semanal de tendencias</li>
             <li>Informe mensual ejecutivo</li>
             <li>Riesgo/oportunidad completo</li>
-            <li>Acceso historico 30 dias</li>
+            <li>Acceso histórico 30 días</li>
             <li>Hasta 3 usuarios</li>
           </ul>
           <a href="#demo" class="btn btn-primary">Comenzar prueba gratuita</a>
@@ -338,10 +480,10 @@
           </div>
           <ul>
             <li>Todo lo del plan Profesional</li>
-            <li>Dashboards avanzados con busquedas especificas</li>
+            <li>Dashboards avanzados con búsquedas específicas</li>
             <li>Alertas personalizadas</li>
             <li>Reportes ad-hoc</li>
-            <li>Acceso historico ilimitado</li>
+            <li>Acceso histórico ilimitado</li>
             <li>10+ usuarios</li>
             <li>Soporte dedicado</li>
           </ul>
@@ -349,44 +491,59 @@
         </div>
 
       </div>
-      <p class="pricing-note">Todos los planes incluyen 7 dias de prueba gratuita. Pago anual: 2 meses gratis. Cancelacion en cualquier momento.</p>
+      <p class="pricing-note">Todos los planes incluyen 7 días de prueba gratuita. Pago anual: 2 meses gratis. Cancelación en cualquier momento.</p>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section" id="faq">
+  <section class="section section-gray" id="faq">
     <div class="container container-narrow">
       <h2 class="section-title">Preguntas frecuentes</h2>
       <div class="faq-list">
 
         <details class="faq-item">
-          <summary>Como funciona la prueba gratuita?</summary>
-          <p>Te registras, elegis tu plan, y recibis los informes durante 7 dias sin costo. No pedimos tarjeta de credito. Si no te sirve, simplemente no continuas.</p>
+          <summary>¿Cómo funciona la prueba gratuita?</summary>
+          <p>Te registrás, elegís tu plan, y recibís los informes durante 7 días sin costo. No pedimos tarjeta de crédito. Si no te sirve, simplemente no continuás.</p>
         </details>
 
         <details class="faq-item">
-          <summary>Que medios analizan?</summary>
-          <p>Mas de 13 medios agro argentinos e internacionales, incluyendo Clarin Rural, La Nacion Campo, Infocampo, Agrofy, Bichos de Campo, Infobae, TodoAgro, Agritotal, AgroClave, AgroVerdad, Noticias Agropecuarias, SerIndustria y AgroSitio.</p>
+          <summary>¿Qué medios analizan?</summary>
+          <p>Más de 13 medios agro argentinos e internacionales: Clarín Rural, La Nación Campo, Infocampo, Agrofy, Bichos de Campo, Infobae, TodoAgro, Agritotal, AgroClave, AgroVerdad, Noticias Agropecuarias, SerIndustria y AgroSitio.</p>
         </details>
 
         <details class="faq-item">
-          <summary>En que se diferencia de un newsletter?</summary>
-          <p>Un newsletter informa. AgroScope interpreta, conecta y anticipa. Usamos inteligencia artificial especializada para extraer tendencias, actores, riesgos y oportunidades que un resumen humano no puede detectar.</p>
+          <summary>¿Qué fuentes de datos externos utilizan?</summary>
+          <p>31 fuentes automáticas integradas: USDA (producción y exportaciones), FAO (mercados globales), NOAA (clima), BCR (reservas, tipo de cambio), CFTC (posición especuladora en futuros), Comtrade (comercio internacional), Matba-Rofex CEM2 (precios locales), Baltic Exchange (fletes), FAO ASIS (índice satelital de agua en suelo), entre otras. Todas se actualizan automáticamente según su frecuencia de publicación.</p>
         </details>
 
         <details class="faq-item">
-          <summary>Puedo usar AgroScope para mi equipo?</summary>
-          <p>Si. Los planes Profesional y Corporativo incluyen multiples usuarios. El plan Corporativo se adapta a las necesidades especificas de tu empresa.</p>
+          <summary>¿Qué es el Score 0–100 por cultivo?</summary>
+          <p>Es la síntesis diaria que integra las tres capas del sistema: discurso de prensa, datos externos y señales de los predictores validados. Un Score alto indica que la mayoría de las señales disponibles apuntan en dirección alcista; uno bajo, lo contrario. Cada Score incluye su AUC (confianza del modelo). No es una recomendación de trading — es inteligencia contextual para informar decisiones.</p>
         </details>
 
         <details class="faq-item">
-          <summary>Como recibo los informes?</summary>
-          <p>Por email cada maniana. Formato claro, listo para leer en 5 minutos. Todos los planes incluyen acceso a dashboards web interactivos. El plan Corporativo ofrece dashboards mas completos con busquedas especificas y mayor profundidad de analisis.</p>
+          <summary>¿Cómo validan los predictores?</summary>
+          <p>Cada predictor se testea con backtest histórico sobre datos reales (2024–2026). Métricas: AUC (curva ROC), correlación Pearson, test de Granger (causalidad), Engle-Granger/Johansen (cointegración) y modelos ML calibrados con validación cruzada. Solo publicamos predictores con AUC mayor o igual a 0.58 y evidencia de robustez estadística.</p>
         </details>
 
         <details class="faq-item">
-          <summary>Que pasa si no estoy satisfecho?</summary>
-          <p>Cancelacion en cualquier momento, sin penalidad. Y siempre podes escribirnos para feedback — lo usamos para mejorar el servicio.</p>
+          <summary>¿En qué se diferencia de un newsletter?</summary>
+          <p>Un newsletter informa. AgroScope integra prensa, datos globales y modelos predictivos. Usamos NLP especializado, análisis estadístico y backtest empírico. Además documentamos honestamente qué podemos predecir y qué no — algo que ningún newsletter hace.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Puedo usar AgroScope para mi equipo?</summary>
+          <p>Sí. Los planes Profesional y Corporativo incluyen múltiples usuarios. El plan Corporativo se adapta a las necesidades específicas de tu empresa.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Cómo recibo los informes?</summary>
+          <p>Por email cada mañana. Formato claro, listo para leer en 5 minutos. Todos los planes incluyen acceso a dashboards web interactivos. El plan Corporativo ofrece dashboards más completos con búsquedas específicas y mayor profundidad de análisis.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>¿Qué pasa si no estoy satisfecho?</summary>
+          <p>Cancelación en cualquier momento, sin penalidad. Y siempre podés escribirnos con feedback — lo usamos para mejorar el servicio.</p>
         </details>
 
       </div>
@@ -396,8 +553,8 @@
   <!-- CTA FINAL -->
   <section class="section section-dark section-cta" id="demo">
     <div class="container">
-      <h2 class="section-title light">No lea mas noticias. <span class="highlight-light">Lea inteligencia.</span></h2>
-      <p class="cta-sub">7 dias de prueba gratuita. Sin tarjeta. Sin compromiso. 5 minutos al dia que cambian como decide.</p>
+      <h2 class="section-title light">No lea más noticias. <span class="highlight-light">Lea inteligencia.</span></h2>
+      <p class="cta-sub">7 días de prueba gratuita. Sin tarjeta. Sin compromiso. Prensa, datos globales y predicción validada — todo en 5 minutos al día.</p>
 
       <form class="demo-form" id="demo-form" name="demo" netlify data-netlify="true" method="POST">
         <div class="form-row">
@@ -426,12 +583,13 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo-agro">Agro</span><span class="logo-scope">Scope</span>
-        <p>Inteligencia estrategica para el agro</p>
+        <div class="footer-logo"><span class="logo-agro">Agro</span><span class="footer-scope">Scope</span></div>
+        <p>Inteligencia agroindustrial con validación empírica</p>
       </div>
       <div class="footer-links">
         <a href="#inicio">Inicio</a>
         <a href="#producto">Producto</a>
+        <a href="#validacion">Validación</a>
         <a href="#precios">Precios</a>
         <a href="#demo">Demo</a>
       </div>
@@ -442,12 +600,10 @@
   </footer>
 
   <script>
-    // Mobile nav toggle
     document.querySelector('.nav-toggle').addEventListener('click', function() {
       document.querySelector('.nav-links').classList.toggle('open');
     });
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', function(e) {
         const target = document.querySelector(this.getAttribute('href'));
@@ -459,7 +615,6 @@
       });
     });
 
-    // FAQ accordion - close others when one opens
     document.querySelectorAll('.faq-item').forEach(item => {
       item.addEventListener('toggle', function() {
         if (this.open) {
@@ -469,6 +624,11 @@
         }
       });
     });
+
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
   </script>
 
 </body>
