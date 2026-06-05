@@ -72,9 +72,11 @@ a:hover { color: var(--green-light); }
   font-size: 1.35rem;
   letter-spacing: -0.5px;
   display: flex;
-  align-items: baseline;
-  gap: 0;
+  align-items: center;
+  gap: 8px;
 }
+
+.logo-mark { height: 28px; width: 28px; flex-shrink: 0; }
 
 .logo-agro { font-weight: 800; color: var(--green); }
 .logo-scope { font-weight: 700; color: var(--text); }
