@@ -76,7 +76,7 @@ a:hover { color: var(--green-light); }
   gap: 8px;
 }
 
-.logo-mark { height: 28px; width: 28px; flex-shrink: 0; }
+.logo-mark { height: 40px; width: 40px; flex-shrink: 0; }
 
 .logo-agro { font-weight: 800; color: var(--green); }
 .logo-scope { font-weight: 700; color: var(--text); }

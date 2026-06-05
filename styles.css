@@ -101,12 +101,13 @@ a:hover { color: var(--green-mid); }
 .nav.scrolled { box-shadow: var(--shadow-sm); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 1rem; }
 .logo { font-family: var(--f-display); font-size: 1.3rem; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.logo-mark { height: 30px; width: 30px; flex-shrink: 0; }
+.logo-mark { height: 46px; width: 46px; flex-shrink: 0; }
 .logo-agro  { font-weight: 800; color: var(--green); }
 .logo-scope { font-weight: 700; color: var(--text); }
 .nav-links { display: flex; align-items: center; gap: 1.5rem; }
 .nav-links a { font-size: var(--t-sm); font-weight: 500; color: var(--text-2); }
 .nav-links a:hover { color: var(--green); }
+.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: #fff; }
 .nav-toggle { display: none; flex-direction: column; gap: 5px; padding: 0.5rem; background: none; border: none; cursor: pointer; }
 .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
 
@@ -368,7 +369,7 @@ a:hover { color: var(--green-mid); }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .footer-brand { display: flex; flex-direction: column; gap: 0.4rem; }
 .footer-logo  { font-family: var(--f-display); font-size: 1.25rem; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
-.footer-logo .logo-mark { height: 28px; width: 28px; }
+.footer-logo .logo-mark { height: 38px; width: 38px; }
 .footer-logo .logo-agro { color: #fff; }
 .footer-scope { font-weight: 700; color: rgba(255,255,255,.5); }
 .footer-brand p { font-size: var(--t-xs); color: rgba(255,255,255,.4); }
