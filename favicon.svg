@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="82 46 300 300" width="300" height="300">
+  <!-- AgroScope — Isotipo (solo emblema, para favicon / avatar) -->
+  <path d="M100,180 A120,120 0 0 1 340,180" fill="none" stroke="#8A6A45" stroke-width="16"/>
+  <path d="M100,180 A120,120 0 0 0 340,180" fill="none" stroke="#2F4A33" stroke-width="16"/>
+  <line x1="299" y1="259" x2="360" y2="320" stroke="#8A6A45" stroke-width="22" stroke-linecap="round"/>
+  <polyline points="108,180 165,180 176,180 184,164 196,200 205,180 250,180 260,180 268,166 277,194 285,180 332,180"
+            fill="none" stroke="#3B5A40" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="220" y1="100" x2="220" y2="252" stroke="#2F4A33" stroke-width="5"/>
+  <g fill="#C9A23C">
+    <ellipse cx="220" cy="96" rx="7" ry="17"/>
+    <ellipse cx="209" cy="118" rx="7" ry="15" transform="rotate(-22 209 118)"/>
+    <ellipse cx="231" cy="118" rx="7" ry="15" transform="rotate(22 231 118)"/>
+    <ellipse cx="208" cy="139" rx="7" ry="15" transform="rotate(-22 208 139)"/>
+    <ellipse cx="232" cy="139" rx="7" ry="15" transform="rotate(22 232 139)"/>
+    <ellipse cx="209" cy="160" rx="7" ry="14" transform="rotate(-22 209 160)"/>
+    <ellipse cx="231" cy="160" rx="7" ry="14" transform="rotate(22 231 160)"/>
+  </g>
+  <g fill="#2F4A33">
+    <ellipse cx="201" cy="206" rx="7" ry="16" transform="rotate(45 201 206)"/>
+    <ellipse cx="239" cy="206" rx="7" ry="16" transform="rotate(-45 239 206)"/>
+    <ellipse cx="207" cy="232" rx="6" ry="14" transform="rotate(38 207 232)"/>
+    <ellipse cx="233" cy="232" rx="6" ry="14" transform="rotate(-38 233 232)"/>
+  </g>
+</svg>
