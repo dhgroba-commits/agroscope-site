@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AgroScope — Inteligencia Agroindustrial con Validación Empírica</title>
-  <meta name="description" content="Sistema de inteligencia agroindustrial: prensa AR (14 medios), 31 fuentes externas (USDA, FAO, NOAA, BCR, CFTC, Matba-Rofex) y modelos predictivos calibrados con backtest. Score 0-100 por cultivo cada mañana.">
+  <meta name="description" content="Sistema de inteligencia agroindustrial: prensa AR (14 medios), 31 fuentes externas (USDA, FAO, NOAA, BCR, CFTC, Matba-Rofex) y modelos ML re-backtesteados a diario. Score 0–100 por cultivo (en calibración) cada mañana.">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="AgroScope Intelligence">
-  <meta property="og:description" content="Inteligencia agroindustrial con validación empírica. 3 capas: prensa, datos externos y modelos ML calibrados.">
+  <meta property="og:description" content="Inteligencia agroindustrial con validación empírica. 3 capas: prensa, datos externos y modelos ML re-backtesteados a diario.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="favicon-180.png">
@@ -44,7 +44,7 @@
       <div class="hero-content">
         <p class="hero-eyebrow">Sistema propio de análisis del agro</p>
         <h1>La información del agro, convertida en <em>inteligencia estratégica</em>.</h1>
-        <p class="hero-sub">Un sistema propio que integra <strong>tres capas</strong>: prensa argentina (14 medios), 31 fuentes globales de datos (USDA, FAO, NOAA, BCR, Matba-Rofex) y modelos predictivos validados con backtest. Actores, tendencias, riesgos y un Score 0–100 por cultivo. Todo en 5 minutos cada mañana.</p>
+        <p class="hero-sub">Un sistema propio que integra <strong>tres capas</strong>: prensa argentina (14 medios), 31 fuentes globales de datos (USDA, FAO, NOAA, BCR, Matba-Rofex) y modelos predictivos re-backtesteados a diario. Actores, tendencias, riesgos y un Score 0–100 por cultivo (en calibración). Todo en 5 minutos cada mañana.</p>
         <div class="hero-ctas">
           <a href="#demo" class="btn btn-amber btn-lg">Solicitar demo gratuita</a>
           <a href="demo/diario/" class="btn-link-white">Ver un informe ejemplo →</a>
@@ -69,7 +69,7 @@
           </div>
           <div class="hd-layer hd-l3">
             <div class="hd-layer-label">Capa 3 — Señales predictivas</div>
-            <div class="hd-layer-detail">6 predictores · 4 modelos ML · AUC 0.58–0.64 · Score 0–100</div>
+            <div class="hd-layer-detail">Señales validadas · 4 modelos ML · backtest diario · <span style="white-space:nowrap">Score 0–100</span></div>
           </div>
           <div class="hd-output">
             <div class="hd-output-label">Informe diario · 5 minutos</div>
@@ -148,9 +148,9 @@
             <span class="layer-tag">Capa 3</span>
             <h3>Señales predictivas</h3>
           </div>
-          <p>6 predictores validados con backtest propio. 4 modelos ML calibrados (AUC 0.58–0.64). Score 0–100 por cultivo, recalibrado mensualmente con datos reales.</p>
+          <p>Señales cuantitativas validadas contra precio local por ventana estacional. 4 modelos ML re-backtesteados a diario. Score 0–100 por cultivo (en calibración), con validación continua diaria.</p>
           <div class="layer-chips">
-            <span>AUC 0.58–0.64</span>
+            <span>57–74% del precio es local</span>
             <span>15+ backtests</span>
             <span>Score 0–100</span>
           </div>
@@ -187,7 +187,7 @@
           <div class="rp-chips"><span>Gobierno Nacional</span><span>Mesa de Enlace</span><span>Exportadoras</span><span>BCR</span></div>
         </div>
         <div class="rp-panel rp-score">
-          <h4 class="rp-h"><span class="rp-dot rp-dot-gold"></span>Score del día por cultivo</h4>
+          <h4 class="rp-h"><span class="rp-dot rp-dot-gold"></span>Score del día por cultivo <span style="opacity:.55;font-weight:500">(en calibración)</span></h4>
           <div class="rp-scores">
             <div class="rp-row"><span class="rp-crop">Soja</span><span class="rp-track"><span class="rp-fill rp-up" style="width:72%"></span></span><span class="rp-arrow rp-aup">▲</span><span class="rp-val">72</span></div>
             <div class="rp-row"><span class="rp-crop">Maíz</span><span class="rp-track"><span class="rp-fill rp-flat" style="width:58%"></span></span><span class="rp-arrow rp-aflat">▬</span><span class="rp-val">58</span></div>
@@ -200,7 +200,7 @@
           </div>
         </div>
       </div>
-      <p class="deep-note">Cada sección combina las tres capas del sistema. El Score 0–100 por cultivo y los predictores están disponibles en el alcance Corporativo.</p>
+      <p class="deep-note">Cada sección combina las tres capas del sistema. El Score 0–100 por cultivo (en calibración) y los predictores están disponibles en el alcance Corporativo.</p>
     </div>
   </section>
 
@@ -214,7 +214,7 @@
           <h3>Informe Diario</h3>
           <p class="card-tagline">Cada mañana en tu inbox.</p>
           <ul>
-            <li>Score predictivo 0–100 por cultivo (con confianza)</li>
+            <li>Score predictivo 0–100 por cultivo (en calibración)</li>
             <li>Actores clave, acciones y cadenas de valor (NLP)</li>
             <li>Datos del día: precios CBOT/FOB, clima NOAA, Matba-Rofex</li>
             <li>Seguimiento regulatorio y señales de mercado</li>
@@ -269,7 +269,7 @@
             <tr><td>Cobertura de medios</td><td>2–3</td><td>Variable</td><td class="col-highlight"><strong>+14 medios AR</strong></td></tr>
             <tr><td>Fuentes externas integradas</td><td>No</td><td>Manual</td><td class="col-highlight"><strong>31 fuentes automáticas</strong></td></tr>
             <tr><td>Análisis de actores (NLP)</td><td>No</td><td>Manual</td><td class="col-highlight"><strong>Automático</strong></td></tr>
-            <tr><td>Modelos predictivos</td><td>No</td><td>No</td><td class="col-highlight"><strong>Sí (AUC validado)</strong></td></tr>
+            <tr><td>Modelos predictivos</td><td>No</td><td>No</td><td class="col-highlight"><strong>Sí (backtest diario)</strong></td></tr>
             <tr><td>Validación empírica</td><td>No</td><td>No</td><td class="col-highlight"><strong>Sí (backtest propio)</strong></td></tr>
             <tr><td>Costo mensual</td><td>Gratis / bajo</td><td>USD 2,000+</td><td class="col-highlight"><strong>Gratis</strong></td></tr>
             <tr><td>Tiempo de lectura</td><td>10–15 min</td><td>30+ min</td><td class="col-highlight"><strong>5 minutos</strong></td></tr>
@@ -310,7 +310,7 @@
           <div class="tech-num">04</div>
           <div class="tech-body">
             <h4>Señales predictivas validadas</h4>
-            <p>6 predictores con backtest histórico. 4 modelos ML calibrados (AUC 0.58–0.64)</p>
+            <p>Señales validadas contra precio local por ventana estacional. 4 modelos ML re-backtesteados a diario</p>
           </div>
         </div>
         <div class="tech-item">
@@ -338,7 +338,7 @@
           <div class="tech-num">08</div>
           <div class="tech-body">
             <h4>Validación empírica continua</h4>
-            <p>Backtest mensual. Documentamos qué funciona y qué no. Sin promesas no validadas.</p>
+            <p>Backtests re-ejecutados a diario, con monitor de drift. Documentamos qué funciona y qué no. Sin promesas no validadas.</p>
           </div>
         </div>
       </div>
@@ -351,32 +351,32 @@
     <div class="container">
       <div class="val-header">
         <h2 class="val-title">Validación empírica.</h2>
-        <p class="val-sub">No es un claim de marketing. Es un backtest sobre 540 días de datos reales. Publicamos lo que funciona y lo que tiene límites.</p>
+        <p class="val-sub">No es un claim de marketing: backtests sobre 540 días de datos reales, re-ejecutados a diario. Publicamos lo que funciona y lo que tiene límites.</p>
       </div>
       <div class="val-auc-grid">
         <div class="auc-card">
-          <div class="auc-crop">Soja</div>
+          <div class="auc-crop">Dinámica argentina</div>
+          <div class="auc-value">57–74%</div>
+          <div class="auc-bar"><div class="auc-fill" style="width:74%"></div></div>
+          <div class="auc-label">del precio es dinámica local: brecha, retenciones, logística, clima — lo que AgroScope monitorea</div>
+        </div>
+        <div class="auc-card">
+          <div class="auc-crop">Señal local validada</div>
+          <div class="auc-value">r +0.80</div>
+          <div class="auc-bar"><div class="auc-fill" style="width:80%"></div></div>
+          <div class="auc-label">ingreso de camiones vs. pizarra en ventana de siembra de trigo</div>
+        </div>
+        <div class="auc-card">
+          <div class="auc-crop">Modelo ML maíz</div>
           <div class="auc-value">0.64</div>
           <div class="auc-bar"><div class="auc-fill" style="width:64%"></div></div>
-          <div class="auc-label">AUC — modelo v2 canónico</div>
+          <div class="auc-label">AUC vigente en backtest diario — el modelo se re-valida cada mañana</div>
         </div>
         <div class="auc-card">
-          <div class="auc-crop">Maíz</div>
-          <div class="auc-value">0.63</div>
-          <div class="auc-bar"><div class="auc-fill" style="width:63%"></div></div>
-          <div class="auc-label">AUC — Sprint 25 Fase B</div>
-        </div>
-        <div class="auc-card">
-          <div class="auc-crop">Trigo</div>
-          <div class="auc-value">0.58</div>
-          <div class="auc-bar"><div class="auc-fill" style="width:58%"></div></div>
-          <div class="auc-label">AUC — ROBUSTO Fase A</div>
-        </div>
-        <div class="auc-card">
-          <div class="auc-crop">Girasol</div>
-          <div class="auc-value">0.61</div>
-          <div class="auc-bar"><div class="auc-fill" style="width:61%"></div></div>
-          <div class="auc-label">AUC — Fase B (y_up)</div>
+          <div class="auc-crop">Residuo típico</div>
+          <div class="auc-value">±4–9</div>
+          <div class="auc-bar"><div class="auc-fill" style="width:3%"></div></div>
+          <div class="auc-label">USD/t que Chicago no explica a 3 semanas — el espacio donde AgroScope aporta</div>
         </div>
       </div>
       <div class="val-principles">
@@ -390,10 +390,10 @@
         </div>
         <div class="vp-item">
           <div class="vp-num">0</div>
-          <div class="vp-text">promesas no validadas. Cada señal incluye su AUC, su margen de error y sus limitaciones documentadas</div>
+          <div class="vp-text">promesas no validadas. Cada señal incluye su evidencia, su margen de error y sus limitaciones documentadas</div>
         </div>
       </div>
-      <p class="val-footnote">AUC mayor a 0.5 equivale a mejor que azar. AUC 0.58–0.64 en mercados agro con alta volatilidad política y macroeconómica es un resultado estadísticamente robusto y reproducible.</p>
+      <p class="val-footnote">Cada señal publicada supera tres filtros de robustez: signo teórico, significancia estadística y robustez a controles. Los modelos se re-backtestean a diario con monitor de drift automático. Las fuentes y los modelos específicos se comparten con clientes con suscripción activa.</p>
     </div>
   </section>
 
@@ -407,7 +407,7 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2F4A33" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
           </div>
           <h3>Empresas agropecuarias y exportadoras</h3>
-          <p>Visión integrada de prensa y datos externos para comité directivo. Score predictivo 0–100 por cultivo para planificación comercial y cobertura. Ahorro de tiempo ejecutivo real.</p>
+          <p>Visión integrada de prensa y datos externos para comité directivo. Score predictivo 0–100 por cultivo (en calibración) para planificación comercial y cobertura. Ahorro de tiempo ejecutivo real.</p>
         </div>
         <div class="card-audience">
           <div class="audience-icon">
@@ -428,7 +428,7 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2F4A33" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
           <h3>Asesores y consultores</h3>
-          <p>Insumo diario para asesoramiento a clientes. Score predictivo más contexto de mercado como base para recomendaciones informadas. Valor agregado a tu servicio.</p>
+          <p>Insumo diario para asesoramiento a clientes. Score predictivo (en calibración) más contexto de mercado como base para recomendaciones informadas. Valor agregado a tu servicio.</p>
         </div>
       </div>
     </div>
@@ -440,7 +440,7 @@
       <h2 class="section-title">AgroScope en números</h2>
       <div class="stats-grid">
         <div class="stat">
-          <div class="stat-number">+13</div>
+          <div class="stat-number">+14</div>
           <div class="stat-label">medios agro analizados diariamente</div>
         </div>
         <div class="stat">
@@ -448,12 +448,12 @@
           <div class="stat-label">fuentes de datos externos integradas</div>
         </div>
         <div class="stat">
-          <div class="stat-number">6</div>
-          <div class="stat-label">predictores validados con backtest</div>
+          <div class="stat-number">4</div>
+          <div class="stat-label">modelos ML re-backtesteados a diario</div>
         </div>
         <div class="stat">
-          <div class="stat-number">0.61</div>
-          <div class="stat-label">AUC promedio en modelos ML calibrados</div>
+          <div class="stat-number">57–74%</div>
+          <div class="stat-label">del precio es dinámica local: brecha, retenciones, logística, clima</div>
         </div>
         <div class="stat">
           <div class="stat-number">5 min</div>
@@ -519,7 +519,7 @@
           <ul>
             <li class="feat-head">El sistema completo, más:</li>
             <li>31 fuentes de datos externos (todas)</li>
-            <li>Predictores y Score 0–100 por cultivo</li>
+            <li>Predictores y Score 0–100 por cultivo (en calibración)</li>
             <li>Alertas personalizadas y reportes ad-hoc</li>
             <li>Usuarios ilimitados y soporte dedicado</li>
           </ul>
@@ -544,7 +544,7 @@
 
         <details class="faq-item">
           <summary>¿Qué medios analizan?</summary>
-          <p>Más de 14 medios agro argentinos e internacionales: Clarín Rural, La Nación Campo, Infocampo, Agrofy, Bichos de Campo, Infobae, TodoAgro, Agritotal, AgroClave, AgroVerdad, Noticias Agropecuarias, SerIndustria y AgroSitio.</p>
+          <p>14 medios agro argentinos: Clarín Rural, La Nación Campo, Infocampo, Agrofy, Bichos de Campo, Infobae, TodoAgro, Agritotal, AgroClave, AgroVerdad, Noticias Agropecuarias, SerIndustria, MundoAgro y AgroSitio.</p>
         </details>
 
         <details class="faq-item">
@@ -554,17 +554,17 @@
 
         <details class="faq-item">
           <summary>¿Qué diferencia a los tres planes?</summary>
-          <p>Es el mismo sistema con distinto alcance. <strong>Productor</strong> (USD 0) entrega el informe diario con riesgo/oportunidad y precios: el pulso del día. <strong>Profesional</strong> (USD 0) suma los informes semanal y mensual, el análisis de prensa completo y 10 fuentes de datos externos. <strong>Corporativo</strong> (a consultar) abre el sistema completo: las 31 fuentes externas, los predictores y el Score 0–100 por cultivo. Cada plan incluye todo lo del anterior.</p>
+          <p>Es el mismo sistema con distinto alcance. <strong>Productor</strong> (USD 0) entrega el informe diario con riesgo/oportunidad y precios: el pulso del día. <strong>Profesional</strong> (USD 0) suma los informes semanal y mensual, el análisis de prensa completo y 10 fuentes de datos externos. <strong>Corporativo</strong> (a consultar) abre el sistema completo: las 31 fuentes externas, los predictores y el Score 0–100 por cultivo (en calibración). Cada plan incluye todo lo del anterior.</p>
         </details>
 
         <details class="faq-item">
           <summary>¿Qué es el Score 0–100 por cultivo?</summary>
-          <p>Es la síntesis diaria que integra las tres capas del sistema: discurso de prensa, datos externos y señales de los predictores validados. Un Score alto indica que la mayoría de las señales disponibles apuntan en dirección alcista; uno bajo, lo contrario. Cada Score incluye su AUC (confianza del modelo). No es una recomendación de trading — es inteligencia contextual para informar decisiones. Disponible en el alcance Corporativo.</p>
+          <p>Es la síntesis diaria que integra las tres capas del sistema: discurso de prensa, datos externos y señales cuantitativas validadas. Un Score alto indica que la mayoría de las señales disponibles apuntan en dirección alcista; uno bajo, lo contrario. Está en calibración: se publica junto a su evidencia y su margen de error, con backtests re-ejecutados a diario. No es una recomendación de trading — es inteligencia contextual para informar decisiones. Disponible en el alcance Corporativo.</p>
         </details>
 
         <details class="faq-item">
           <summary>¿Cómo validan los predictores?</summary>
-          <p>Cada predictor se testea con backtest histórico sobre datos reales (2024–2026). Métricas: AUC (curva ROC), correlación Pearson, test de Granger (causalidad), Engle-Granger/Johansen (cointegración) y modelos ML calibrados con validación cruzada. Solo publicamos predictores con AUC mayor o igual a 0.58 y evidencia de robustez estadística.</p>
+          <p>Cada señal se valida contra el precio local por ventana estacional, con backtest sobre datos reales (2024–2026). Métricas: AUC (curva ROC), correlación Pearson, test de Granger (causalidad), Engle-Granger/Johansen (cointegración) y modelos ML con validación cruzada. Cada señal publicada supera tres filtros de robustez — signo teórico, significancia estadística y robustez a controles — y los backtests se re-ejecutan a diario con monitor de drift automático.</p>
         </details>
 
         <details class="faq-item">
