@@ -2,215 +2,2554 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <title>Red Multi-Capa — 2026-03-04</title>
+  <title>Red Multi-Capa — 2026-09-22</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 1em; }
     #mynetwork { width: 100%; height: 800px; border: 1px solid lightgray; }
     .info { color: #666; font-size: 0.9em; margin-bottom: 0.5em; }
     .leyenda { font-size: 0.95em; margin-bottom: 1em; }
+    div.vis-tooltip { white-space: pre-line; }
   </style>
   <script type="text/javascript"
-    src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
 </head>
 <body>
-  <h1 style="font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:700;color:#3a4a3c;margin:0 0 8px 0">Red Multi-Capa — 2026-03-04</h1>
+  <h1 style="font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:700;color:#3a4a3c;margin:0 0 8px 0">Red Multi-Capa — 2026-09-22</h1>
   <p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#6e7c68;margin:0 0 10px 0;max-width:760px">Cada nodo es un actor del d&iacute;a; las l&iacute;neas conectan a quienes aparecen juntos en las noticias. El color y grosor indican qu&eacute; tan relacionados est&aacute;n y si hay tensi&oacute;n entre ellos.</p>
-  <p class="info">50 actores &middot; 137 relaciones &middot;
+  <p class="info">47 actores &middot; 213 relaciones &middot;
     Requiere conexion a internet (vis.js CDN)</p>
-  <p class="leyenda"><span style="color:#3498db">&#9632;</span> Co-ocurrencia SVO (201) &nbsp;&middot;&nbsp; <span style="color:#e74c3c">&#9632;</span> Causal SFL (339) &nbsp;&middot;&nbsp; <span style="color:#7f8c8d">&#9632;</span> Co-mencion en notas (109) &nbsp;&middot;&nbsp; <span style="color:#4a8c3a">&#9646;</span> Afiliacion a sector (cajas) &nbsp;&middot;&nbsp; <span style="color:#9b59b6">&#9632;</span> Citas: quien habla de que (6)</p>
+  <p class="leyenda"><span style="color:#3498db">&#9632;</span> Co-ocurrencia SVO (12 dibujadas / 41 detectadas) &nbsp;&middot;&nbsp; <span style="color:#e74c3c">&#9632;</span> Causal SFL (28 dibujadas / 173 detectadas) &nbsp;&middot;&nbsp; <span style="color:#7f8c8d">&#9632;</span> Co-mención en notas (112 dibujadas / 135 detectadas) &nbsp;&middot;&nbsp; <span style="color:#4a8c3a">&#9632;</span> Afiliación a sector (40 dibujadas / 40 detectadas) &nbsp;&middot;&nbsp; <span style="color:#9b59b6">&#9632;</span> Citas: quién habla de qué (21 dibujadas / 21 detectadas)</p>
   <div id="mynetwork"></div>
   <script type="text/javascript">
     var nodes = new vis.DataSet([
-      {id: 0, label: "ARGENTINA", value: 46, title: "ARGENTINA\\nGrado: 46\\nTipo: LOCALIZACION\\nSector: agricultura\\nPageRank: 0.0101\\nPresion: media", color: "#4a8c3a"},
-      {id: 1, label: "JULIETA HEINE ASTRADA", value: 20, title: "JULIETA HEINE ASTRADA\\nGrado: 20\\nSector: ganaderia-carne\\nPageRank: 0.0019", color: "#8c4a3a"},
-      {id: 2, label: "ROSARIO", value: 19, title: "ROSARIO\\nGrado: 19\\nTipo: LOCALIZACION\\nSector: empresas\\nPageRank: 0.0020\\nPresion: baja", color: "#5a3a8c"},
-      {id: 3, label: "EXPOAGRO", value: 14, title: "EXPOAGRO\\nGrado: 14\\nTipo: EVENTO\\nSector: agricultura\\nPageRank: 0.0029\\nPresion: alta", color: "#4a8c3a"},
-      {id: 4, label: "CORDOBA", value: 13, title: "CORDOBA\\nGrado: 13\\nTipo: LOCALIZACION\\nSector: agricultura\\nPageRank: 0.0046\\nPresion: baja", color: "#4a8c3a"},
-      {id: 5, label: "BARILOCHE", value: 13, title: "BARILOCHE\\nGrado: 13\\nTipo: PERSONA\\nSector: varios\\nPageRank: 0.0025\\nPresion: baja", color: "#6e7c68"},
-      {id: 6, label: "BUENOS AIRES", value: 13, title: "BUENOS AIRES\\nGrado: 13\\nTipo: LOCALIZACION\\nSector: ganaderia-carne\\nPageRank: 0.0035\\nPresion: baja", color: "#8c4a3a"},
-      {id: 7, label: "MICHELIN", value: 13, title: "MICHELIN\\nGrado: 13\\nTipo: EMPRESA\\nSector: agricultura\\nPageRank: 0.0040\\nPresion: alta", color: "#4a8c3a"},
-      {id: 8, label: "PATAGONIA NORTE", value: 12, title: "PATAGONIA NORTE\\nGrado: 12\\nSector: ganaderia-carne\\nPageRank: 0.0006", color: "#8c4a3a"},
-      {id: 9, label: "INTA", value: 11, title: "INTA\\nGrado: 11\\nTipo: INSTITUCION\\nSector: agricultura\\nPageRank: 0.0051\\nPresion: baja", color: "#4a8c3a"},
-      {id: 10, label: "MEDIO ORIENTE", value: 10, title: "MEDIO ORIENTE\\nGrado: 10\\nTipo: REGION\\nSector: costos-insumos\\nPageRank: 0.0049\\nPresion: baja", color: "#7a3a8c"},
-      {id: 11, label: "ANTONELLA SEMADENI", value: 10, title: "ANTONELLA SEMADENI\\nGrado: 10\\nTipo: PERSONA\\nSector: agricultura\\nPageRank: 0.0002\\nPresion: alta", color: "#4a8c3a"},
-      {id: 12, label: "BRASIL", value: 9, title: "BRASIL\\nGrado: 9\\nTipo: PAIS\\nSector: agricultura\\nPageRank: 0.0026\\nPresion: media", color: "#4a8c3a"},
-      {id: 13, label: "CIUDAD DE BUENOS AIRES", value: 9, title: "CIUDAD DE BUENOS AIRES\\nGrado: 9\\nPageRank: 0.0005"},
-      {id: 14, label: "AGRALE", value: 8, title: "AGRALE\\nGrado: 8\\nTipo: EMPRESA\\nSector: clima-rindes\\nPageRank: 0.0026\\nPresion: media", color: "#3a8c8c"},
-      {id: 15, label: "SOJA DE PRIMERA Y MAIZ TEMPRANO", value: 8, title: "SOJA DE PRIMERA Y MAIZ TEMPRANO\\nGrado: 8\\nPageRank: 0.0010"},
-      {id: 16, label: "PRONOSTICO DEL TIEMPO", value: 8, title: "PRONOSTICO DEL TIEMPO\\nGrado: 8\\nSector: empresas\\nPageRank: 0.0002", color: "#5a3a8c"},
-      {id: 17, label: "FADA", value: 7, title: "FADA\\nGrado: 7\\nTipo: INSTITUCION\\nSector: agricultura\\nPageRank: 0.0010", color: "#4a8c3a"},
-      {id: 18, label: "GOBIERNO PROVINCIAL", value: 7, title: "GOBIERNO PROVINCIAL\\nGrado: 7\\nSector: ganaderia-carne\\nPageRank: 0.0010", color: "#8c4a3a"},
-      {id: 19, label: "JUSTICIA", value: 7, title: "JUSTICIA\\nGrado: 7\\nTipo: OTRO\\nSector: empresas\\nPageRank: 0.0015\\nPresion: baja", color: "#5a3a8c"},
-      {id: 20, label: "PRODUCTORES OVINOS", value: 7, title: "PRODUCTORES OVINOS\\nGrado: 7\\nSector: ganaderia-carne\\nPageRank: 0.0010", color: "#8c4a3a"},
-      {id: 21, label: "RIEGO ELECTRICO CONSUME UN TERCIO", value: 7, title: "RIEGO ELECTRICO CONSUME UN TERCIO\\nGrado: 7\\nPageRank: 0.0013"},
-      {id: 22, label: "RIO NEGRO", value: 7, title: "RIO NEGRO\\nGrado: 7\\nSector: varios\\nPageRank: 0.0010", color: "#6e7c68"},
-      {id: 23, label: "LUPULINA", value: 7, title: "LUPULINA\\nGrado: 7\\nSector: varios\\nPageRank: 0.0008", color: "#6e7c68"},
-      {id: 24, label: "LATINOAMERICA", value: 7, title: "LATINOAMERICA\\nGrado: 7\\nSector: ganaderia-carne\\nPageRank: 0.0002", color: "#8c4a3a"},
-      {id: 25, label: "ARECO", value: 7, title: "ARECO\\nGrado: 7\\nSector: ganaderia-carne\\nPageRank: 0.0002", color: "#8c4a3a"},
-      {id: 26, label: "REPUBLICA CHECA", value: 7, title: "REPUBLICA CHECA\\nGrado: 7\\nSector: ganaderia-carne\\nPageRank: 0.0002", color: "#8c4a3a"},
-      {id: 27, label: "CRIOLANI BAUER", value: 6, title: "CRIOLANI BAUER\\nGrado: 6\\nTipo: PERSONA\\nSector: clima-rindes\\nPageRank: 0.0017\\nPresion: alta", color: "#3a8c8c"},
-      {id: 28, label: "SOCIEDAD RURAL ARGENTINA", value: 6, title: "SOCIEDAD RURAL ARGENTINA\\nGrado: 6\\nTipo: GREMIAL\\nSector: ganaderia-carne\\nPageRank: 0.0019\\nPresion: baja", color: "#8c4a3a"},
-      {id: 29, label: "IMPACTO DEL RIEGO", value: 6, title: "IMPACTO DEL RIEGO\\nGrado: 6\\nPageRank: 0.0008"},
-      {id: 30, label: "MAIZ Y LAS GRAMINEAS", value: 6, title: "MAIZ Y LAS GRAMINEAS\\nGrado: 6\\nPageRank: 0.0015"},
-      {id: 31, label: "NICOLLE PISANI CLARO", value: 6, title: "NICOLLE PISANI CLARO\\nGrado: 6\\nTipo: PERSONA\\nSector: agricultura\\nPageRank: 0.0005\\nPresion: baja", color: "#4a8c3a"},
-      {id: 32, label: "CERVECERIA PATAGONIA", value: 6, title: "CERVECERIA PATAGONIA\\nGrado: 6\\nSector: varios\\nPageRank: 0.0002", color: "#6e7c68"},
-      {id: 33, label: "LUCIA MOLINA", value: 6, title: "LUCIA MOLINA\\nGrado: 6\\nSector: varios\\nPageRank: 0.0002", color: "#6e7c68"},
-      {id: 34, label: "AMERICA LATINA", value: 5, title: "AMERICA LATINA\\nGrado: 5\\nSector: politica-regulaciones\\nPageRank: 0.0010", color: "#8c3a3a"},
-      {id: 35, label: "SANTA FE", value: 5, title: "SANTA FE\\nGrado: 5\\nTipo: LOCALIZACION\\nSector: ganaderia-carne\\nPageRank: 0.0057\\nPresion: media", color: "#8c4a3a"},
-      {id: 36, label: "BOLSACER", value: 5, title: "BOLSACER\\nGrado: 5\\nTipo: INSTITUCION\\nSector: sanidad-plagas\\nPageRank: 0.0038\\nPresion: alta", color: "#8c3a5a"},
-      {id: 37, label: "IVECO", value: 4, title: "IVECO\\nGrado: 4\\nTipo: INSTITUCION\\nSector: politica-regulaciones\\nPageRank: 0.0015\\nPresion: baja", color: "#8c3a3a"},
-      {id: 38, label: "BIOCERES", value: 4, title: "BIOCERES\\nGrado: 4\\nTipo: EMPRESA\\nSector: empresas\\nPageRank: 0.0010\\nPresion: alta", color: "#5a3a8c"},
-      {id: 39, label: "RIMI", value: 4, title: "RIMI\\nGrado: 4\\nTipo: REGIMEN\\nSector: empresas\\nPageRank: 0.0006\\nPresion: baja", color: "#5a3a8c"},
-      {id: 40, label: "MARIA FERNANDA GONZALEZ SANJUAN", value: 4, title: "MARIA FERNANDA GONZALEZ SANJUAN\\nGrado: 4\\nTipo: PERSONA\\nSector: agricultura\\nPageRank: 0.0010\\nPresion: media", color: "#4a8c3a"},
-      {id: 41, label: "AGRICULTURA", value: 28, title: "Sector/tema: agricultura", color: "#4a8c3a", shape: "box"},
-      {id: 42, label: "GANADERIA-CARNE", value: 28, title: "Sector/tema: ganaderia-carne", color: "#8c4a3a", shape: "box"},
-      {id: 43, label: "EMPRESAS", value: 28, title: "Sector/tema: empresas", color: "#5a3a8c", shape: "box"},
-      {id: 44, label: "VARIOS", value: 28, title: "Sector/tema: varios", color: "#6e7c68", shape: "box"},
-      {id: 45, label: "COSTOS-INSUMOS", value: 28, title: "Sector/tema: costos-insumos", color: "#7a3a8c", shape: "box"},
-      {id: 46, label: "CLIMA-RINDES", value: 28, title: "Sector/tema: clima-rindes", color: "#3a8c8c", shape: "box"},
-      {id: 47, label: "POLITICA-REGULACIONES", value: 28, title: "Sector/tema: politica-regulaciones", color: "#8c3a3a", shape: "box"},
-      {id: 48, label: "SANIDAD-PLAGAS", value: 28, title: "Sector/tema: sanidad-plagas", color: "#8c3a5a", shape: "box"},
-      {id: 49, label: "SUSTENTABILIDAD", value: 28, title: "Sector/tema: sustentabilidad", color: "#3a8c5a", shape: "box"}
-    ]);
+  {
+    "id": 0,
+    "label": "ARGENTINA",
+    "value": 67,
+    "title": "ARGENTINA\nGrado: 67\nSector: politica-regulaciones\nPageRank: 0.0179\nPresion: alta",
+    "color": "#8c3a3a"
+  },
+  {
+    "id": 1,
+    "label": "BRASIL",
+    "value": 31,
+    "title": "BRASIL\nGrado: 31\nTipo: PAIS\nSector: politica-regulaciones\nPageRank: 0.0103\nScore ranking: 0.592\nPresion: alta",
+    "color": "#8c3a3a"
+  },
+  {
+    "id": 2,
+    "label": "BOLSA DE CEREALES DE BUENOS AIRES",
+    "value": 27,
+    "title": "BOLSA DE CEREALES DE BUENOS AIRES\nGrado: 27\nTipo: INSTITUCION\nSector: politica-regulaciones\nPageRank: 0.0081\nScore ranking: 0.489\nPresion: media",
+    "color": "#8c3a3a"
+  },
+  {
+    "id": 3,
+    "label": "RICARDO MARRA",
+    "value": 19,
+    "title": "RICARDO MARRA\nGrado: 19\nTipo: PERSONA\nSector: politica-regulaciones\nPageRank: 0.0012\nScore ranking: 0.392\nPresion: media",
+    "color": "#8c3a3a"
+  },
+  {
+    "id": 4,
+    "label": "IRAETA",
+    "value": 15,
+    "title": "IRAETA\nGrado: 15\nTipo: LOCALIZACION\nSector: agricultura\nPageRank: 0.0054\nScore ranking: 0.409\nPresion: alta",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 5,
+    "label": "GUSTAVO IDIGORAS",
+    "value": 13,
+    "title": "GUSTAVO IDIGORAS\nGrado: 13\nTipo: PERSONA\nSector: politica-regulaciones\nPageRank: 0.0023\nScore ranking: 0.320\nPresion: alta",
+    "color": "#8c3a3a"
+  },
+  {
+    "id": 6,
+    "label": "AGRICULTURA",
+    "value": 11,
+    "title": "AGRICULTURA\nGrado: 11\nTipo: LOCALIZACION\nSector: agricultura\nPageRank: 0.0027\nScore ranking: 0.197",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 7,
+    "label": "COSTA",
+    "value": 11,
+    "title": "COSTA\nGrado: 11\nTipo: OTRO\nSector: agricultura\nPageRank: 0.0037\nScore ranking: 0.296\nPresion: media",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 8,
+    "label": "GOBIERNO",
+    "value": 10,
+    "title": "GOBIERNO\nGrado: 10\nSector: politica-regulaciones\nPageRank: 0.0050",
+    "color": "#8c3a3a"
+  },
+  {
+    "id": 9,
+    "label": "INTA",
+    "value": 10,
+    "title": "INTA\nGrado: 10\nTipo: INSTITUCION\nSector: ganaderia-carne\nPageRank: 0.0027\nScore ranking: 0.318\nPresion: baja",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 10,
+    "label": "SERGIO IRAETA",
+    "value": 10,
+    "title": "SERGIO IRAETA\nGrado: 10\nTipo: PERSONA\nSector: agricultura\nPageRank: 0.0014\nScore ranking: 0.221\nPresion: media",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 11,
+    "label": "RAMIRO COSTA",
+    "value": 10,
+    "title": "RAMIRO COSTA\nGrado: 10\nTipo: PERSONA\nSector: agricultura\nPageRank: 0.0007\nScore ranking: 0.177\nPresion: baja",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 12,
+    "label": "VICTORIA ROSSNER",
+    "value": 8,
+    "title": "VICTORIA ROSSNER\nGrado: 8\nTipo: PERSONA\nSector: ganaderia-carne\nPageRank: 0.0013\nScore ranking: 0.130\nPresion: media",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 13,
+    "label": "AMADEO DERITO",
+    "value": 8,
+    "title": "AMADEO DERITO\nGrado: 8\nSector: exportacion-comercio\nPageRank: 0.0009\nPresion: media",
+    "color": "#5a8c3a"
+  },
+  {
+    "id": 14,
+    "label": "EXPORTACIONES",
+    "value": 8,
+    "title": "EXPORTACIONES\nGrado: 8\nSector: agricultura\nPageRank: 0.0013\nPresion: media",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 15,
+    "label": "LATINOAMERICA",
+    "value": 8,
+    "title": "LATINOAMERICA\nGrado: 8\nSector: agricultura\nPageRank: 0.0012\nPresion: media",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 16,
+    "label": "ESTADO",
+    "value": 7,
+    "title": "ESTADO\nGrado: 7\nTipo: LOCALIZACION\nSector: agricultura\nPageRank: 0.0007\nScore ranking: 0.152",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 17,
+    "label": "NELSO BACCI",
+    "value": 7,
+    "title": "NELSO BACCI\nGrado: 7\nTipo: PERSONA\nSector: ganaderia-carne\nPageRank: 0.0016\nScore ranking: 0.203\nPresion: alta",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 18,
+    "label": "AAPRESID",
+    "value": 7,
+    "title": "AAPRESID\nGrado: 7\nSector: agricultura\nPageRank: 0.0013",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 19,
+    "label": "HELEN ESTIMA LAZZARI",
+    "value": 7,
+    "title": "HELEN ESTIMA LAZZARI\nGrado: 7\nSector: agricultura\nPageRank: 0.0001",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 20,
+    "label": "JUMA MARTINS",
+    "value": 7,
+    "title": "JUMA MARTINS\nGrado: 7\nSector: agricultura\nPageRank: 0.0009",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 21,
+    "label": "JUSTIN ADAMS",
+    "value": 7,
+    "title": "JUSTIN ADAMS\nGrado: 7\nSector: agricultura\nPageRank: 0.0009\nPresion: baja",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 22,
+    "label": "MARK STEVENSON",
+    "value": 7,
+    "title": "MARK STEVENSON\nGrado: 7\nSector: agricultura\nPageRank: 0.0005\nPresion: media",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 23,
+    "label": "ASOCIACION",
+    "value": 6,
+    "title": "ASOCIACION\nGrado: 6\nSector: ganaderia-carne\nPageRank: 0.0013\nPresion: media",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 24,
+    "label": "CONGRESO",
+    "value": 6,
+    "title": "CONGRESO\nGrado: 6\nSector: politica-regulaciones\nPageRank: 0.0006\nPresion: media",
+    "color": "#8c3a3a"
+  },
+  {
+    "id": 25,
+    "label": "OLIVEIRA SOARES",
+    "value": 6,
+    "title": "OLIVEIRA SOARES\nGrado: 6\nTipo: PERSONA\nSector: politica-regulaciones\nPageRank: 0.0011\nScore ranking: 0.135\nPresion: alta",
+    "color": "#8c3a3a"
+  },
+  {
+    "id": 26,
+    "label": "MAXIMILIANO MORENO",
+    "value": 6,
+    "title": "MAXIMILIANO MORENO\nGrado: 6\nSector: agricultura\nPageRank: 0.0008\nPresion: baja",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 27,
+    "label": "ESTADOS UNIDOS",
+    "value": 6,
+    "title": "ESTADOS UNIDOS\nGrado: 6\nTipo: PAIS\nSector: agricultura\nPageRank: 0.0016\nScore ranking: 0.202\nPresion: media",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 28,
+    "label": "PESCA DE LA NACION",
+    "value": 6,
+    "title": "PESCA DE LA NACION\nGrado: 6\nSector: agricultura\nPageRank: 0.0001",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 29,
+    "label": "ANGUS",
+    "value": 5,
+    "title": "ANGUS\nGrado: 5\nTipo: PERSONA\nSector: ganaderia-carne\nPageRank: 0.0019\nScore ranking: 0.161\nPresion: baja",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 30,
+    "label": "MARCELO PAMIES",
+    "value": 5,
+    "title": "MARCELO PAMIES\nGrado: 5\nSector: ganaderia-carne\nPageRank: 0.0022",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 31,
+    "label": "UNION EUROPEA",
+    "value": 5,
+    "title": "UNION EUROPEA\nGrado: 5\nTipo: INSTITUCION\nSector: lactea\nPageRank: 0.0029\nScore ranking: 0.129\nPresion: baja",
+    "color": "#6e7c68"
+  },
+  {
+    "id": 32,
+    "label": "RUSIA",
+    "value": 4,
+    "title": "RUSIA\nGrado: 4\nSector: exportacion-comercio\nPageRank: 0.0010\nPresion: baja",
+    "color": "#5a8c3a"
+  },
+  {
+    "id": 33,
+    "label": "COLOMBO",
+    "value": 4,
+    "title": "COLOMBO\nGrado: 4\nTipo: INSTITUCION\nSector: ganaderia-carne\nPageRank: 0.0010\nScore ranking: 0.134\nPresion: baja",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 34,
+    "label": "PROVINCIA DE BUENOS AIRES",
+    "value": 4,
+    "title": "PROVINCIA DE BUENOS AIRES\nGrado: 4\nSector: ganaderia-carne\nPageRank: 0.0017",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 35,
+    "label": "CHINA",
+    "value": 4,
+    "title": "CHINA\nGrado: 4\nTipo: PAIS\nSector: lactea\nPageRank: 0.0032\nScore ranking: 0.273\nPresion: baja",
+    "color": "#6e7c68"
+  },
+  {
+    "id": 36,
+    "label": "EUDR",
+    "value": 4,
+    "title": "EUDR\nGrado: 4\nTipo: LOCALIZACION\nSector: ganaderia-carne\nPageRank: 0.0023\nScore ranking: 0.241\nPresion: media",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 37,
+    "label": "SENASA",
+    "value": 4,
+    "title": "SENASA\nGrado: 4\nTipo: INSTITUCION\nSector: ganaderia-carne\nPageRank: 0.0009\nScore ranking: 0.196\nPresion: media",
+    "color": "#8c4a3a"
+  },
+  {
+    "id": 38,
+    "label": "MARRA",
+    "value": 3,
+    "title": "MARRA\nGrado: 3\nTipo: nan\nPageRank: 0.0075\nScore ranking: 0.287"
+  },
+  {
+    "id": 39,
+    "label": "URUGUAY",
+    "value": 3,
+    "title": "URUGUAY\nGrado: 3\nTipo: LOCALIZACION\nSector: agricultura\nPageRank: 0.0013\nScore ranking: 0.134\nPresion: media",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 40,
+    "label": "MERCOSUR",
+    "value": 2,
+    "title": "MERCOSUR\nGrado: 2\nTipo: INSTITUCION\nSector: agricultura\nPageRank: 0.0022\nScore ranking: 0.224\nPresion: baja",
+    "color": "#4a8c3a"
+  },
+  {
+    "id": 41,
+    "label": "POLITICA-REGULACIONES",
+    "value": 28,
+    "title": "Sector/tema: politica-regulaciones",
+    "color": "#8c3a3a",
+    "shape": "box"
+  },
+  {
+    "id": 42,
+    "label": "AGRICULTURA",
+    "value": 28,
+    "title": "Sector/tema: agricultura",
+    "color": "#4a8c3a",
+    "shape": "box"
+  },
+  {
+    "id": 43,
+    "label": "GANADERIA-CARNE",
+    "value": 28,
+    "title": "Sector/tema: ganaderia-carne",
+    "color": "#8c4a3a",
+    "shape": "box"
+  },
+  {
+    "id": 44,
+    "label": "EXPORTACION-COMERCIO",
+    "value": 28,
+    "title": "Sector/tema: exportacion-comercio",
+    "color": "#5a8c3a",
+    "shape": "box"
+  },
+  {
+    "id": 45,
+    "label": "LACTEA",
+    "value": 28,
+    "title": "Sector/tema: lactea",
+    "color": "#6e7c68",
+    "shape": "box"
+  },
+  {
+    "id": 46,
+    "label": "COSTOS-INSUMOS",
+    "value": 28,
+    "title": "Sector/tema: costos-insumos",
+    "color": "#7a3a8c",
+    "shape": "box"
+  }
+]);
     var edges = new vis.DataSet([
-      {from: 14, to: 3, value: 4.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=4)"},
-      {from: 0, to: 34, value: 2.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=2)"},
-      {from: 5, to: 8, value: 2.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=2)"},
-      {from: 12, to: 0, value: 2.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=2)"},
-      {from: 27, to: 3, value: 2.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=2)"},
-      {from: 9, to: 29, value: 2.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=2)"},
-      {from: 1, to: 13, value: 2.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=2)"},
-      {from: 7, to: 3, value: 3.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=3)"},
-      {from: 20, to: 5, value: 2.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=2)"},
-      {from: 2, to: 38, value: 2.0, color: {"color": "#3498db"}, arrows: "", title: "Co-ocurrencia (n=2)"},
-      {from: 19, to: 38, value: 2.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: JUSTICIA → decretar → BIOCERES"},
-      {from: 14, to: 3, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: AGRALE → lanzar → EXPOAGRO"},
-      {from: 2, to: 38, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: ROSARIO → decretar → BIOCERES"},
-      {from: 14, to: 3, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: AGRALE → celebrar → EXPOAGRO"},
-      {from: 36, to: 19, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: BOLSACER → defender → JUSTICIA"},
-      {from: 27, to: 3, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: CRIOLANI BAUER → volver → EXPOAGRO"},
-      {from: 7, to: 3, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: MICHELIN → llevar → EXPOAGRO"},
-      {from: 7, to: 3, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: MICHELIN → reforzar → EXPOAGRO"},
-      {from: 0, to: 34, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: ARGENTINA → afirmar → AMERICA LATINA"},
-      {from: 21, to: 0, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: RIEGO → mejorar → ARGENTINA"},
-      {from: 14, to: 3, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: AGRALE → apostar → EXPOAGRO"},
-      {from: 14, to: 3, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: AGRALE → presentar → EXPOAGRO"},
-      {from: 2, to: 38, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: ROSARIO → conocer → BIOCERES"},
-      {from: 5, to: 8, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: BARILOCHE → hablar → PATAGONIA"},
-      {from: 1, to: 13, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: JULIETA HEINE ASTRADA → mudar → CIUDAD DE BUENOS AIRES"},
-      {from: 7, to: 3, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: MICHELIN → participar → EXPOAGRO"},
-      {from: 6, to: 9, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: BUENOS AIRES → mostrar → INTA"},
-      {from: 6, to: 4, value: 1.0, color: {"color": "#e74c3c"}, arrows: "to", title: "SFL causal: BUENOS AIRES → encabezar → CORDOBA"},
-      {from: 5, to: 8, value: 3.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 3 notas"},
-      {from: 20, to: 28, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 0, to: 18, value: 3.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 3 notas"},
-      {from: 0, to: 9, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 18, to: 9, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 11, to: 0, value: 4.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 4 notas"},
-      {from: 11, to: 6, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 11, to: 17, value: 4.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 4 notas"},
-      {from: 11, to: 31, value: 3.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 3 notas"},
-      {from: 0, to: 6, value: 3.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 3 notas"},
-      {from: 0, to: 17, value: 4.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 4 notas"},
-      {from: 0, to: 31, value: 3.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 3 notas"},
-      {from: 6, to: 17, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 6, to: 18, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 6, to: 31, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 17, to: 31, value: 3.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 3 notas"},
-      {from: 0, to: 12, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 0, to: 10, value: 4.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 4 notas"},
-      {from: 5, to: 32, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 5, to: 13, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 5, to: 33, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 5, to: 23, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 5, to: 22, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 32, to: 13, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 32, to: 33, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 32, to: 23, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 32, to: 8, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 32, to: 22, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 13, to: 33, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 13, to: 23, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 13, to: 8, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 13, to: 22, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 24, to: 2, value: 3.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 3 notas"},
-      {from: 33, to: 23, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 33, to: 8, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 33, to: 22, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 23, to: 8, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 23, to: 22, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 8, to: 22, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 27, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 25, to: 1, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 25, to: 1, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 25, to: 1, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 25, to: 24, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 25, to: 16, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 25, to: 26, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 25, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 24, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 16, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 26, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 24, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 16, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 26, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 24, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 16, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 26, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 1, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 24, to: 16, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 24, to: 26, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 20, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 16, to: 26, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 16, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 26, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 19, to: 2, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 0, to: 4, value: 2.0, color: {"color": "#7f8c8d"}, arrows: "", title: "Co-mencion en 2 notas"},
-      {from: 0, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "ARGENTINA - sector agricultura"},
-      {from: 1, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "JULIETA HEINE ASTRADA - sector ganaderia-carne"},
-      {from: 2, to: 43, value: 1.5, color: {"color": "#5a3a8c", "opacity": 0.4}, arrows: "", title: "ROSARIO - sector empresas"},
-      {from: 3, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "EXPOAGRO - sector agricultura"},
-      {from: 4, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "CORDOBA - sector agricultura"},
-      {from: 5, to: 44, value: 1.5, color: {"color": "#6e7c68", "opacity": 0.4}, arrows: "", title: "BARILOCHE - sector varios"},
-      {from: 6, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "BUENOS AIRES - sector ganaderia-carne"},
-      {from: 7, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "MICHELIN - sector agricultura"},
-      {from: 8, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "PATAGONIA NORTE - sector ganaderia-carne"},
-      {from: 9, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "INTA - sector agricultura"},
-      {from: 10, to: 45, value: 1.5, color: {"color": "#7a3a8c", "opacity": 0.4}, arrows: "", title: "MEDIO ORIENTE - sector costos-insumos"},
-      {from: 11, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "ANTONELLA SEMADENI - sector agricultura"},
-      {from: 12, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "BRASIL - sector agricultura"},
-      {from: 14, to: 46, value: 1.5, color: {"color": "#3a8c8c", "opacity": 0.4}, arrows: "", title: "AGRALE - sector clima-rindes"},
-      {from: 16, to: 43, value: 1.5, color: {"color": "#5a3a8c", "opacity": 0.4}, arrows: "", title: "PRONOSTICO DEL TIEMPO - sector empresas"},
-      {from: 17, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "FADA - sector agricultura"},
-      {from: 18, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "GOBIERNO PROVINCIAL - sector ganaderia-carne"},
-      {from: 19, to: 43, value: 1.5, color: {"color": "#5a3a8c", "opacity": 0.4}, arrows: "", title: "JUSTICIA - sector empresas"},
-      {from: 20, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "PRODUCTORES OVINOS - sector ganaderia-carne"},
-      {from: 22, to: 44, value: 1.5, color: {"color": "#6e7c68", "opacity": 0.4}, arrows: "", title: "RIO NEGRO - sector varios"},
-      {from: 23, to: 44, value: 1.5, color: {"color": "#6e7c68", "opacity": 0.4}, arrows: "", title: "LUPULINA - sector varios"},
-      {from: 24, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "LATINOAMERICA - sector ganaderia-carne"},
-      {from: 25, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "ARECO - sector ganaderia-carne"},
-      {from: 26, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "REPUBLICA CHECA - sector ganaderia-carne"},
-      {from: 27, to: 46, value: 1.5, color: {"color": "#3a8c8c", "opacity": 0.4}, arrows: "", title: "CRIOLANI BAUER - sector clima-rindes"},
-      {from: 28, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "SOCIEDAD RURAL ARGENTINA - sector ganaderia-carne"},
-      {from: 31, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "NICOLLE PISANI CLARO - sector agricultura"},
-      {from: 32, to: 44, value: 1.5, color: {"color": "#6e7c68", "opacity": 0.4}, arrows: "", title: "CERVECERIA PATAGONIA - sector varios"},
-      {from: 33, to: 44, value: 1.5, color: {"color": "#6e7c68", "opacity": 0.4}, arrows: "", title: "LUCIA MOLINA - sector varios"},
-      {from: 34, to: 47, value: 1.5, color: {"color": "#8c3a3a", "opacity": 0.4}, arrows: "", title: "AMERICA LATINA - sector politica-regulaciones"},
-      {from: 35, to: 42, value: 1.5, color: {"color": "#8c4a3a", "opacity": 0.4}, arrows: "", title: "SANTA FE - sector ganaderia-carne"},
-      {from: 36, to: 48, value: 1.5, color: {"color": "#8c3a5a", "opacity": 0.4}, arrows: "", title: "BOLSACER - sector sanidad-plagas"},
-      {from: 37, to: 47, value: 1.5, color: {"color": "#8c3a3a", "opacity": 0.4}, arrows: "", title: "IVECO - sector politica-regulaciones"},
-      {from: 38, to: 43, value: 1.5, color: {"color": "#5a3a8c", "opacity": 0.4}, arrows: "", title: "BIOCERES - sector empresas"},
-      {from: 39, to: 43, value: 1.5, color: {"color": "#5a3a8c", "opacity": 0.4}, arrows: "", title: "RIMI - sector empresas"},
-      {from: 40, to: 41, value: 1.5, color: {"color": "#4a8c3a", "opacity": 0.4}, arrows: "", title: "MARIA FERNANDA GONZALEZ SANJUAN - sector agricultura"},
-      {from: 28, to: 42, value: 2.0, color: {"color": "#9b59b6", "opacity": 0.7}, arrows: "to", title: "SOCIEDAD RURAL ARGENTINA habla de ganaderia-carne (2 citas)"},
-      {from: 36, to: 48, value: 2.0, color: {"color": "#9b59b6", "opacity": 0.7}, arrows: "to", title: "BOLSACER habla de sanidad-plagas (2 citas)"},
-      {from: 17, to: 41, value: 1.5, color: {"color": "#9b59b6", "opacity": 0.7}, arrows: "to", title: "FADA habla de agricultura (1 citas)"},
-      {from: 16, to: 43, value: 1.5, color: {"color": "#9b59b6", "opacity": 0.7}, arrows: "to", title: "PRONOSTICO DEL TIEMPO habla de empresas (1 citas)"},
-      {from: 20, to: 42, value: 2.0, color: {"color": "#9b59b6", "opacity": 0.7}, arrows: "to", title: "PRODUCTORES OVINOS habla de ganaderia-carne (2 citas)"},
-      {from: 14, to: 49, value: 1.5, color: {"color": "#9b59b6", "opacity": 0.7}, arrows: "to", title: "AGRALE habla de sustentabilidad (1 citas)"}
-    ]);
+  {
+    "from": 0,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#8c3a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "ARGENTINA - sector politica-regulaciones"
+  },
+  {
+    "from": 1,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#8c3a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "BRASIL - sector politica-regulaciones"
+  },
+  {
+    "from": 2,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#8c3a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "BOLSA DE CEREALES DE BUENOS AIRES - sector politica-regulaciones"
+  },
+  {
+    "from": 3,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#8c3a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "RICARDO MARRA - sector politica-regulaciones"
+  },
+  {
+    "from": 4,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "IRAETA - sector agricultura"
+  },
+  {
+    "from": 5,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#8c3a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "GUSTAVO IDIGORAS - sector politica-regulaciones"
+  },
+  {
+    "from": 6,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "AGRICULTURA - sector agricultura"
+  },
+  {
+    "from": 7,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "COSTA - sector agricultura"
+  },
+  {
+    "from": 8,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#8c3a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "GOBIERNO - sector politica-regulaciones"
+  },
+  {
+    "from": 9,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "INTA - sector ganaderia-carne"
+  },
+  {
+    "from": 10,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "SERGIO IRAETA - sector agricultura"
+  },
+  {
+    "from": 11,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "RAMIRO COSTA - sector agricultura"
+  },
+  {
+    "from": 12,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "VICTORIA ROSSNER - sector ganaderia-carne"
+  },
+  {
+    "from": 13,
+    "to": 44,
+    "value": 1.5,
+    "color": {
+      "color": "#5a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "AMADEO DERITO - sector exportacion-comercio"
+  },
+  {
+    "from": 14,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "EXPORTACIONES - sector agricultura"
+  },
+  {
+    "from": 15,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "LATINOAMERICA - sector agricultura"
+  },
+  {
+    "from": 16,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "ESTADO - sector agricultura"
+  },
+  {
+    "from": 17,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "NELSO BACCI - sector ganaderia-carne"
+  },
+  {
+    "from": 18,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "AAPRESID - sector agricultura"
+  },
+  {
+    "from": 19,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "HELEN ESTIMA LAZZARI - sector agricultura"
+  },
+  {
+    "from": 20,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "JUMA MARTINS - sector agricultura"
+  },
+  {
+    "from": 21,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "JUSTIN ADAMS - sector agricultura"
+  },
+  {
+    "from": 22,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "MARK STEVENSON - sector agricultura"
+  },
+  {
+    "from": 23,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "ASOCIACION - sector ganaderia-carne"
+  },
+  {
+    "from": 24,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#8c3a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "CONGRESO - sector politica-regulaciones"
+  },
+  {
+    "from": 25,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#8c3a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "OLIVEIRA SOARES - sector politica-regulaciones"
+  },
+  {
+    "from": 26,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "MAXIMILIANO MORENO - sector agricultura"
+  },
+  {
+    "from": 27,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "ESTADOS UNIDOS - sector agricultura"
+  },
+  {
+    "from": 28,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "PESCA DE LA NACION - sector agricultura"
+  },
+  {
+    "from": 29,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "ANGUS - sector ganaderia-carne"
+  },
+  {
+    "from": 30,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "MARCELO PAMIES - sector ganaderia-carne"
+  },
+  {
+    "from": 31,
+    "to": 45,
+    "value": 1.5,
+    "color": {
+      "color": "#6e7c68",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "UNION EUROPEA - sector lactea"
+  },
+  {
+    "from": 32,
+    "to": 44,
+    "value": 1.5,
+    "color": {
+      "color": "#5a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "RUSIA - sector exportacion-comercio"
+  },
+  {
+    "from": 33,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "COLOMBO - sector ganaderia-carne"
+  },
+  {
+    "from": 34,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "PROVINCIA DE BUENOS AIRES - sector ganaderia-carne"
+  },
+  {
+    "from": 35,
+    "to": 45,
+    "value": 1.5,
+    "color": {
+      "color": "#6e7c68",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "CHINA - sector lactea"
+  },
+  {
+    "from": 36,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "EUDR - sector ganaderia-carne"
+  },
+  {
+    "from": 37,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#8c4a3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "SENASA - sector ganaderia-carne"
+  },
+  {
+    "from": 39,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "URUGUAY - sector agricultura"
+  },
+  {
+    "from": 40,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#4a8c3a",
+      "opacity": 0.4
+    },
+    "arrows": "",
+    "title": "MERCOSUR - sector agricultura"
+  },
+  {
+    "from": 0,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "ARGENTINA habla de ganaderia-carne (1 citas)"
+  },
+  {
+    "from": 1,
+    "to": 42,
+    "value": 2.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "BRASIL habla de agricultura (2 citas)"
+  },
+  {
+    "from": 1,
+    "to": 44,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "BRASIL habla de exportacion-comercio (1 citas)"
+  },
+  {
+    "from": 2,
+    "to": 41,
+    "value": 2.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "BOLSA DE CEREALES DE BUENOS AIRES habla de politica-regulaciones (3 citas)"
+  },
+  {
+    "from": 4,
+    "to": 41,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "IRAETA habla de politica-regulaciones (1 citas)"
+  },
+  {
+    "from": 4,
+    "to": 42,
+    "value": 3.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "IRAETA habla de agricultura (4 citas)"
+  },
+  {
+    "from": 4,
+    "to": 46,
+    "value": 2.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "IRAETA habla de costos-insumos (2 citas)"
+  },
+  {
+    "from": 5,
+    "to": 41,
+    "value": 4.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "GUSTAVO IDIGORAS habla de politica-regulaciones (7 citas)"
+  },
+  {
+    "from": 5,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "GUSTAVO IDIGORAS habla de agricultura (1 citas)"
+  },
+  {
+    "from": 7,
+    "to": 42,
+    "value": 9.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "COSTA habla de agricultura (17 citas)"
+  },
+  {
+    "from": 8,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "GOBIERNO habla de agricultura (1 citas)"
+  },
+  {
+    "from": 8,
+    "to": 44,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "GOBIERNO habla de exportacion-comercio (1 citas)"
+  },
+  {
+    "from": 9,
+    "to": 43,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "INTA habla de ganaderia-carne (1 citas)"
+  },
+  {
+    "from": 10,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "SERGIO IRAETA habla de agricultura (1 citas)"
+  },
+  {
+    "from": 22,
+    "to": 42,
+    "value": 1.5,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "MARK STEVENSON habla de agricultura (1 citas)"
+  },
+  {
+    "from": 25,
+    "to": 46,
+    "value": 3.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "OLIVEIRA SOARES habla de costos-insumos (4 citas)"
+  },
+  {
+    "from": 30,
+    "to": 43,
+    "value": 2.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "MARCELO PAMIES habla de ganaderia-carne (2 citas)"
+  },
+  {
+    "from": 31,
+    "to": 43,
+    "value": 2.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "UNION EUROPEA habla de ganaderia-carne (2 citas)"
+  },
+  {
+    "from": 33,
+    "to": 43,
+    "value": 2.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "COLOMBO habla de ganaderia-carne (2 citas)"
+  },
+  {
+    "from": 38,
+    "to": 41,
+    "value": 4.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "MARRA habla de politica-regulaciones (6 citas)"
+  },
+  {
+    "from": 38,
+    "to": 42,
+    "value": 3.0,
+    "color": {
+      "color": "#9b59b6",
+      "opacity": 0.7
+    },
+    "arrows": "to",
+    "title": "MARRA habla de agricultura (4 citas)"
+  },
+  {
+    "from": 0,
+    "to": 1,
+    "value": 6.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=6)"
+  },
+  {
+    "from": 0,
+    "to": 38,
+    "value": 2.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=2)"
+  },
+  {
+    "from": 1,
+    "to": 0,
+    "value": 2.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=2)"
+  },
+  {
+    "from": 1,
+    "to": 32,
+    "value": 2.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=2)"
+  },
+  {
+    "from": 4,
+    "to": 38,
+    "value": 2.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=2)"
+  },
+  {
+    "from": 5,
+    "to": 0,
+    "value": 3.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=3)"
+  },
+  {
+    "from": 5,
+    "to": 24,
+    "value": 2.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=2)"
+  },
+  {
+    "from": 6,
+    "to": 8,
+    "value": 4.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=4)"
+  },
+  {
+    "from": 10,
+    "to": 2,
+    "value": 2.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=2)"
+  },
+  {
+    "from": 30,
+    "to": 9,
+    "value": 2.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=2)"
+  },
+  {
+    "from": 33,
+    "to": 34,
+    "value": 3.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=3)"
+  },
+  {
+    "from": 38,
+    "to": 16,
+    "value": 2.0,
+    "color": {
+      "color": "#3498db"
+    },
+    "arrows": "",
+    "title": "Co-ocurrencia (n=2)"
+  },
+  {
+    "from": 0,
+    "to": 1,
+    "value": 10.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 10 notas"
+  },
+  {
+    "from": 0,
+    "to": 2,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 0,
+    "to": 2,
+    "value": 10.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 10 notas"
+  },
+  {
+    "from": 0,
+    "to": 3,
+    "value": 7.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 7 notas"
+  },
+  {
+    "from": 0,
+    "to": 4,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 0,
+    "to": 5,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 0,
+    "to": 7,
+    "value": 6.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 6 notas"
+  },
+  {
+    "from": 0,
+    "to": 8,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 0,
+    "to": 9,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 0,
+    "to": 10,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 0,
+    "to": 11,
+    "value": 7.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 7 notas"
+  },
+  {
+    "from": 0,
+    "to": 14,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 0,
+    "to": 15,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 16,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 0,
+    "to": 19,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 20,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 21,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 22,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 24,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 26,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 27,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 0,
+    "to": 28,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 35,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 0,
+    "to": 39,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 0,
+    "to": 40,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 5,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 1,
+    "to": 15,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 19,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 20,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 21,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 22,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 24,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 26,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 27,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 35,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 1,
+    "to": 39,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 1,
+    "to": 40,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 2,
+    "to": 3,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 2,
+    "to": 3,
+    "value": 8.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 8 notas"
+  },
+  {
+    "from": 2,
+    "to": 4,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 2,
+    "to": 7,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 2,
+    "to": 7,
+    "value": 5.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 5 notas"
+  },
+  {
+    "from": 2,
+    "to": 8,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 2,
+    "to": 10,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 2,
+    "to": 11,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 2,
+    "to": 11,
+    "value": 6.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 6 notas"
+  },
+  {
+    "from": 2,
+    "to": 14,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 2,
+    "to": 16,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 2,
+    "to": 16,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 2,
+    "to": 28,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 3,
+    "to": 10,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 4,
+    "to": 3,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 4,
+    "to": 10,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 5,
+    "to": 26,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 6,
+    "to": 0,
+    "value": 5.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 5 notas"
+  },
+  {
+    "from": 6,
+    "to": 2,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 6,
+    "to": 3,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 6,
+    "to": 4,
+    "value": 4.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 4 notas"
+  },
+  {
+    "from": 6,
+    "to": 7,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 6,
+    "to": 8,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 6,
+    "to": 10,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 6,
+    "to": 11,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 6,
+    "to": 28,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 7,
+    "to": 3,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 7,
+    "to": 11,
+    "value": 6.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 6 notas"
+  },
+  {
+    "from": 7,
+    "to": 14,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 7,
+    "to": 16,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 7,
+    "to": 28,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 8,
+    "to": 3,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 8,
+    "to": 4,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 8,
+    "to": 10,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 9,
+    "to": 12,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 9,
+    "to": 30,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 9,
+    "to": 37,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 11,
+    "to": 3,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 13,
+    "to": 23,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 13,
+    "to": 29,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 13,
+    "to": 34,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 14,
+    "to": 3,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 14,
+    "to": 8,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 14,
+    "to": 11,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 15,
+    "to": 22,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 16,
+    "to": 3,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 16,
+    "to": 11,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 18,
+    "to": 0,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 18,
+    "to": 1,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 18,
+    "to": 15,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 18,
+    "to": 19,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 18,
+    "to": 20,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 18,
+    "to": 21,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 18,
+    "to": 22,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 19,
+    "to": 15,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 19,
+    "to": 20,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 19,
+    "to": 21,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 19,
+    "to": 22,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 20,
+    "to": 15,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 20,
+    "to": 21,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 20,
+    "to": 22,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 21,
+    "to": 15,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 21,
+    "to": 22,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 23,
+    "to": 34,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 24,
+    "to": 5,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 27,
+    "to": 5,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 27,
+    "to": 26,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 28,
+    "to": 3,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 28,
+    "to": 11,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 29,
+    "to": 23,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 29,
+    "to": 34,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 30,
+    "to": 12,
+    "value": 3.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 3 notas"
+  },
+  {
+    "from": 30,
+    "to": 37,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 35,
+    "to": 39,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 37,
+    "to": 12,
+    "value": 2.0,
+    "color": {
+      "color": "#7f8c8d"
+    },
+    "arrows": "",
+    "title": "Co-mencion en 2 notas"
+  },
+  {
+    "from": 0,
+    "to": 1,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → señalar → BRASIL"
+  },
+  {
+    "from": 0,
+    "to": 1,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → aportar → BRASIL"
+  },
+  {
+    "from": 0,
+    "to": 1,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → comenzar → BRASIL"
+  },
+  {
+    "from": 0,
+    "to": 1,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → ganar → BRASIL"
+  },
+  {
+    "from": 0,
+    "to": 2,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → alcanzar → BOLSA DE CEREALES DE BUENOS AIRES"
+  },
+  {
+    "from": 0,
+    "to": 2,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → volver → BOLSA DE CEREALES DE BUENOS AIRES"
+  },
+  {
+    "from": 0,
+    "to": 3,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → acompañar → RICARDO MARRA"
+  },
+  {
+    "from": 0,
+    "to": 4,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → permitir → IRAETA"
+  },
+  {
+    "from": 0,
+    "to": 31,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: ARGENTINA → plantear → UNION EUROPEA"
+  },
+  {
+    "from": 1,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: BRASIL → explicar → ARGENTINA"
+  },
+  {
+    "from": 1,
+    "to": 32,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: BRASIL → consumir → RUSIA"
+  },
+  {
+    "from": 1,
+    "to": 32,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: BRASIL → necesitar → RUSIA"
+  },
+  {
+    "from": 4,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: IRAETA → asegurar → ARGENTINA"
+  },
+  {
+    "from": 4,
+    "to": 3,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: IRAETA → volver → RICARDO MARRA"
+  },
+  {
+    "from": 5,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: GUSTAVO IDIGORAS → plantear → ARGENTINA"
+  },
+  {
+    "from": 5,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: GUSTAVO IDIGORAS → sostener → ARGENTINA"
+  },
+  {
+    "from": 5,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: GUSTAVO IDIGORAS → poner → ARGENTINA"
+  },
+  {
+    "from": 5,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: GUSTAVO IDIGORAS → remarcar → ARGENTINA"
+  },
+  {
+    "from": 5,
+    "to": 24,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: GUSTAVO IDIGORAS → pedir → CONGRESO"
+  },
+  {
+    "from": 5,
+    "to": 26,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: GUSTAVO IDIGORAS → compartir → MAXIMILIANO MORENO"
+  },
+  {
+    "from": 7,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: COSTA → señalar → ARGENTINA"
+  },
+  {
+    "from": 10,
+    "to": 2,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: SERGIO IRAETA → respaldar → BOLSA DE CEREALES DE BUENOS AIRES"
+  },
+  {
+    "from": 13,
+    "to": 0,
+    "value": 2.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: AMADEO DERITO → afirmar → ARGENTINA"
+  },
+  {
+    "from": 25,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: OLIVEIRA SOARES → destacar → ARGENTINA"
+  },
+  {
+    "from": 25,
+    "to": 0,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: OLIVEIRA SOARES → hablar → ARGENTINA"
+  },
+  {
+    "from": 25,
+    "to": 1,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: OLIVEIRA SOARES → asegurar → BRASIL"
+  },
+  {
+    "from": 31,
+    "to": 36,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: UNION EUROPEA → excluir → EUDR"
+  },
+  {
+    "from": 31,
+    "to": 36,
+    "value": 1.0,
+    "color": {
+      "color": "#e74c3c"
+    },
+    "arrows": "to",
+    "title": "SFL causal: UNION EUROPEA → incorporar → EUDR"
+  }
+]);
     var container = document.getElementById('mynetwork');
     var data = { nodes: nodes, edges: edges };
     var options = {
